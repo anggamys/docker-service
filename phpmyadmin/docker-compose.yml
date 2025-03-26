@@ -1,0 +1,9 @@
+services:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    environment:
+      PMA_HOST: 127.0.0.1 # Ganti dari 'localhost' ke '127.0.0.1'
+      MYSQL_ROOT_PASSWORD: C0del@b08
+    ports:
+      - "8081:80"
