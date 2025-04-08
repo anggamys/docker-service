@@ -4,10 +4,10 @@ services:
     container_name: mysql_container
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: C0del@b08
-      MYSQL_DATABASE: initialize_db
-      MYSQL_USER: WorkSpace
-      MYSQL_PASSWORD: C0del@b08
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - '3307:3306'
     volumes:
@@ -18,9 +18,9 @@ services:
     container_name: phpmyadmin_container
     restart: always
     environment:
-      PMA_HOST: mysql
-      PMA_USER: root
-      PMA_PASSWORD: C0del@b08
+      PMA_HOST: ${PMA_HOST}
+      PMA_USER: ${PMA_USER}
+      PMA_PASSWORD: ${PMA_PASSWORD}
     ports:
       - '8081:80'
     depends_on:

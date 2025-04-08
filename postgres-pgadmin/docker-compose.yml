@@ -6,10 +6,11 @@ services:
     ports:
       - '5432:5432'
     environment:
-      POSTGRES_USER: workspace
-      POSTGRES_PASSWORD: C0del@b08
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - local_pgdata:/var/lib/postgresql/data
+
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin4_container
@@ -17,8 +18,8 @@ services:
     ports:
       - '8888:80'
     environment:
-      PGADMIN_DEFAULT_EMAIL: workspace@example.com
-      PGADMIN_DEFAULT_PASSWORD: C0del@b08
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     volumes:
       - pgadmin-data:/var/lib/pgadmin
 
