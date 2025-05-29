@@ -1,82 +1,92 @@
 # Docker Service
 
-## 📝 Deskripsi
+## Description
 
-Comming soon!
+This repository provides database services using Docker Compose, including MySQL with PhpMyAdmin and PostgreSQL with PgAdmin, designed for easy local development and testing.
 
-## ⚙️ Instalasi
+## Installation
 
-1. **Fork** repository ini ke akun GitHub Anda.
-2. **Clone** repository yang telah Anda fork ke komputer lokal:
+### 1. Fork and Clone the Repository
 
-   ```bash
-   git clone https://github.com/<username>/<repo>.git
-   cd <repo>
-   ```
+First, fork this repository to your GitHub account, then clone it to your local machine:
 
-   > Gantilah `<username>` dengan nama pengguna GitHub Anda dan `<repo>` dengan nama repository yang telah di-fork.
+```bash
+git clone git@github.com:anggamys/docker-service.git
+cd docker-service
+```
 
-## 🚀 Penggunaan
+> Replace `<username>` with your GitHub username and `<repository>` with the name of the forked repository.
 
-1. Masuk ke direktori project:
+## Usage
 
-   ```bash
-   cd <repo>
-   ```
+### 1. Navigate to the Project Directory
 
-   > Gantilah `<repo>` dengan nama folder project yang telah Anda clone.
+```bash
+cd docker-service
+```
 
-2. Pilih layanan yang ingin Anda gunakan:
+> Replace `<repository>` with the name of the cloned project folder.
 
-   - `mysql-phpmyadmin`
-   - `postgresql-pgadmin`
+### 2. Choose the Service You Want to Use
 
-   Masuk ke folder layanan yang dipilih:
+- `mysql-phpmyadmin`
+- `postgresql-pgadmin`
 
-   ```bash
-   cd mysql-phpmyadmin
-   # atau
-   cd postgresql-pgadmin
-   ```
+Navigate into the selected service directory:
 
-3. Salin file `.env.example` dan ubah namanya menjadi `.env`:
+```bash
+cd mysql-phpmyadmin
+# or
+cd postgresql-pgadmin
+```
 
-   ```bash
-   cp .env.example .env
-   ```
+### 3. Copy and Configure the Environment File
 
-4. **Edit file `.env`** sesuai kebutuhan. Anda dapat mengubah:
+Copy the `.env` example file:
 
-   - Username
-   - Password
-   - Nama database
-   - Port akses
+```bash
+cp .env.example .env
+```
 
-   > File `.env` digunakan oleh Docker Compose untuk mengatur konfigurasi layanan.
+Then edit the `.env` file according to your needs. You can configure:
 
-5. Jalankan layanan menggunakan perintah:
+- Username
+- Password
+- Database name
+- Access port
 
-   ```bash
-   docker-compose up -d
-   ```
+> The `.env` file is used by Docker Compose to manage service configuration.
 
-   > Perintah ini akan membangun dan menjalankan kontainer di background.
+### 4. Start the Service
 
-6. **Akses layanan melalui browser** sesuai dengan port yang telah Anda tentukan di file `.env`:
+Run the following command to build and start the containers in the background:
 
-   - **MySQL & PhpMyAdmin**:
+```bash
+docker-compose up -d
+```
 
-     - PhpMyAdmin: `http://localhost:8080`
-     - MySQL: `localhost:3306`
+> This command will build and launch the containers in detached mode.
 
-   - **PostgreSQL & PgAdmin**:
-     - PgAdmin: `http://localhost:8081`
-     - PostgreSQL: `localhost:5432`
+### 5. Access the Services
 
-7. Untuk **menghentikan layanan**, gunakan perintah:
+Once the services are up and running, access them via your browser using the configured ports:
 
-   ```bash
-   docker-compose down
-   ```
+- **MySQL & PhpMyAdmin**
 
-   > Ini akan menghentikan dan menghapus semua kontainer yang sedang berjalan.
+  - PhpMyAdmin: [http://localhost:8080](http://localhost:8080)
+  - MySQL: `localhost:3307`
+
+- **PostgreSQL & PgAdmin**
+
+  - PgAdmin: [http://localhost:8081](http://localhost:8081)
+  - PostgreSQL: `localhost:5432`
+
+### 6. Stop the Services
+
+To stop and remove the containers:
+
+```bash
+docker-compose down
+```
+
+> This will shut down and clean up the containers, networks, and volumes created by `docker-compose up`.
