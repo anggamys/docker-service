@@ -1,6 +1,6 @@
 services:
   db:
-    image: postgres
+    image: postgres:15
     container_name: local_pgdb
     restart: always
     ports:
@@ -10,9 +10,16 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - local_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER}']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - pgnet
 
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:8.6
     container_name: pgadmin4_container
     restart: always
     ports:
@@ -22,7 +29,14 @@ services:
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     volumes:
       - pgadmin-data:/var/lib/pgadmin
+    depends_on:
+      - db
+    networks:
+      - pgnet
 
 volumes:
   local_pgdata:
   pgadmin-data:
+
+networks:
+  pgnet:

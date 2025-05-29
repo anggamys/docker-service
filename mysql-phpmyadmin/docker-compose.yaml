@@ -1,6 +1,6 @@
 services:
   mysql:
-    image: mysql:latest
+    image: mysql:8.0
     container_name: mysql_container
     restart: always
     environment:
@@ -12,15 +12,18 @@ services:
       - '3307:3306'
     volumes:
       - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
+    image: phpmyadmin/phpmyadmin:5.2.1
     container_name: phpmyadmin_container
     restart: always
     environment:
-      PMA_HOST: ${PMA_HOST}
-      PMA_USER: ${PMA_USER}
-      PMA_PASSWORD: ${PMA_PASSWORD}
+      PMA_HOST: mysql
     ports:
       - '8081:80'
     depends_on:
