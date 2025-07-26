@@ -1,0 +1,19 @@
+services:
+  portainer:
+    image: ${PORTAINER_IMAGE}
+    container_name: ${PORTAINER_CONTAINER_NAME}
+    restart: always
+    ports:
+      - '${PORTAINER_HTTPS_PORT}:9443'
+      - '${PORTAINER_EDGE_PORT}:8000'
+    volumes:
+      - ${PORTAINER_DATA_VOLUME}:/data
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - TZ=${PORTAINER_TZ}
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  portainer_data:
+    name: ${PORTAINER_DATA_VOLUME}
