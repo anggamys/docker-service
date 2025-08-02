@@ -1,0 +1,31 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq-mqtt
+    # jika versi tertentu diinginkan, ganti misal jadi "rabbitmq:3.13-management"
+    ports:
+      - '5672:5672' # AMQP (client AMQP, juga untuk interoperabilitas MQTT ↔ AMQP)
+      - '15672:15672' # Management UI (Dashboard Monitoring)
+      - '1883:1883' # MQTT – TCP
+      - '15675:15675' # MQTT via WebSocket (plugin rabbitmq_web_mqtt)
+    environment:
+      RABBITMQ_DEFAULT_USER: mqtt
+      RABBITMQ_DEFAULT_PASS: mqttpass
+      # optional: timezone atau cluster settings
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ['CMD', 'rabbitmq-diagnostics', 'ping']
+      interval: 30s
+      timeout: 5s
+      retries: 5
+
+    # Mengaktifkan plugin MQTT dan Web-MQTT secara otomatis saat container berjalan
+    entrypoint: |
+      bash -lc "
+        rabbitmq-plugins enable --offline rabbitmq_mqtt rabbitmq_web_mqtt &&
+        rabbitmq-server
+      "
+
+volumes:
+  rabbitmq_data:
