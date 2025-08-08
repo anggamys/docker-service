@@ -1,17 +1,11 @@
 services:
-  janus:
-    image: ${JANUS_IMAGE}
-    container_name: ${JANUS_CONTAINER_NAME}
-    restart: unless-stopped
-    environment:
-      - JANUS_LOG_LEVEL=${JANUS_LOG_LEVEL}
+  janus-gateway:
+    image: janus-custom:latest
+    container_name: janus-gateway
     ports:
-      - '${JANUS_HTTP_PORT}:8088'
-      - '${JANUS_WS_PORT}:8188'
-      # Hanya expose HTTPS/WSS jika kamu aktifkan di config & ingin dipakai
-      # - '${JANUS_HTTPS_PORT}:8089'
-      # - '${JANUS_WSS_PORT}:8189'
-      - '${JANUS_MEDIA_PORT_START}-${JANUS_MEDIA_PORT_END}:${JANUS_MEDIA_PORT_START}-${JANUS_MEDIA_PORT_END}/udp'
+      - "8088:8088"
+      - "8188:8188"
+      - "10000-10200:10000-10200/udp"
     volumes:
       - ./conf:/usr/local/etc/janus
-      - ./logs:/usr/local/var/log/janus
+    restart: unless-stopped

@@ -10,7 +10,7 @@ general: {
 	events_folder = "/usr/local/lib/janus/events"
 	loggers_folder = "/usr/local/lib/janus/loggers"
 
-		# The next settings configure logging
+	# The next settings configure logging
 	#log_to_stdout = false					# Whether the Janus output should be written
 											# to stdout or not (default=true)
 	#log_to_file = "/path/to/janus.log"		# Whether to use a log file or not
@@ -28,13 +28,13 @@ general: {
 											# "[\x1b[32mjanus\x1b[0m] " would show a green "janus"
 											# string in square brackets (assuming debug_colors=true).
 
-		# This is what you configure if you want to launch Janus as a daemon
+	# This is what you configure if you want to launch Janus as a daemon
 	#daemonize = true						# Whether Janus should run as a daemon
 											# or not (default=run in foreground)
 	#pid_file = "/path/to/janus.pid"		# PID file to create when Janus has been
 											# started, and to destroy at shutdown
 
-		# There are different ways you can authenticate the Janus and Admin APIs
+	# There are different ways you can authenticate the Janus and Admin APIs
 	#api_secret = "janusrocks"		# String that all Janus requests must contain
 									# to be accepted/authorized by the Janus core.
 									# Useful if you're wrapping all Janus API requests
@@ -56,7 +56,7 @@ general: {
 									# only needed if you enabled the admin API
 									# in any of the available transports.
 
-		# Generic settings
+	# Generic settings
 	#interface = "1.2.3.4"			# Interface to use (will be used in SDP)
 	#server_name = "MyJanusInstance"# Public name of this Janus instance
 									# as it will appear in an info request
