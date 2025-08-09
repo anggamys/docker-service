@@ -2,23 +2,35 @@ general: {
     #configs_folder = /usr/local/etc/janus/streams
 }
 
-rtp-sample: {
-    type = "rtp"
-    id = 1
-    description = "VP8 video-only from external RTP source"
-    audio = false
-    video = true
+h264-file: {
+  type = "rtp"
+  id = 10
+  description = "H.264 file via RTP"
+  audio = false
+  video = true
 
-    # VIDEO (wajib lengkap)
-    videoport = 5004
-    videortcpport = 5005
-    videopt = 100
-    videocodec = "vp8"
-    # kadang membantu:
-    videoiface = "0.0.0.0"
+  videoport = 10000
+  videortcpport = 10001
 
-    # workaround untuk versi tertentu (boleh dibiarkan):
-    audioport = 9999
+  videopt = 126
+  videocodec = "h264"
+  videofmtp = "profile-level-id=42e01f;packetization-mode=1"
+  videoiface = "0.0.0.0"
 
-    secret = "adminpwd"
+  audioport = 9999
+  secret = "adminpwd"
+}
+
+h264-live: {
+  type = "rtp"
+  id = 11
+  description = "Live cam H264 Baseline"
+  audio = false
+  video = true
+  videoport = 10000
+  videortcpport = 10001
+  videopt = 126
+  videocodec = "h264"
+  videofmtp = "profile-level-id=42e01f;packetization-mode=1"
+  secret = "adminpwd"
 }
