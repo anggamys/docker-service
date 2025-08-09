@@ -1,0 +1,9 @@
+{
+  "users": [{ "name": "mqtt", "password": "mqttpass", "tags": "administrator" }],
+  "vhosts": [{ "name": "/" }, { "name": "factory" }],
+  "permissions": [
+    { "user": "mqtt", "vhost": "/", "configure": ".*", "write": ".*", "read": ".*" },
+    { "user": "mqtt", "vhost": "factory", "configure": ".*", "write": ".*", "read": ".*" }
+  ],
+  "global_parameters": [{ "name": "mqtt_port_to_vhost_mapping", "value": "{\"1883\":\"/\"}" }]
+}
