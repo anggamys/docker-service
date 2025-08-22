@@ -1,0 +1,14 @@
+services:
+  minio:
+    image: quay.io/minio/minio:RELEASE.2025-07-18T21-56-31Z
+    container_name: minio-local
+    restart: unless-stopped
+    ports:
+      - "${MINIO_API_PORT}:9000" # API S3
+      - "${MINIO_CONSOLE_PORT}:9001" # Console Admin
+    volumes:
+      - ./data:/data
+      - ./config:/root/.minio
+    env_file:
+      - .env
+    command: server /data --console-address ":9001"
