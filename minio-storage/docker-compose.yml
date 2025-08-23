@@ -1,14 +1,25 @@
 services:
   minio:
     image: quay.io/minio/minio:RELEASE.2025-07-18T21-56-31Z
-    container_name: minio-local
+    container_name: minio-server
     restart: unless-stopped
     ports:
-      - "${MINIO_API_PORT}:9000" # API S3
-      - "${MINIO_CONSOLE_PORT}:9001" # Console Admin
+      - "9000:9000" # API S3
+      - "9001:9001" # Console Dashboard
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin123
     volumes:
-      - ./data:/data
-      - ./config:/root/.minio
-    env_file:
-      - .env
+      - ./data:/data # simpan object
+      - ./config:/root/.minio # config server
     command: server /data --console-address ":9001"
+
+  mc:
+    image: quay.io/minio/mc:RELEASE.2025-07-16T15-35-03Z
+    container_name: minio-client
+    depends_on:
+      - minio
+    entrypoint: /bin/sh
+    tty: true
+    volumes:
+      - ./policies:/policies # mount folder policies
