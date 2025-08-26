@@ -3,10 +3,10 @@ services:
     image: rabbitmq:3-management
     container_name: rabbitmq-mqtt
     ports:
-      - '5672:5672' # AMQP
-      - '15672:15672' # Management UI
-      - '1883:1883' # MQTT TCP
-      - '15675:15675' # Web MQTT (ws://host:15675/ws)
+      - "5672:5672" # AMQP
+      - "15672:15672" # Management UI
+      - "1883:1883" # MQTT TCP
+      - "15675:15675" # Web MQTT (ws://host:15675/ws)
     environment:
       RABBITMQ_CONFIG_FILE: /etc/rabbitmq/rabbitmq
     volumes:
@@ -14,7 +14,7 @@ services:
       - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
       - ./definitions.json:/etc/rabbitmq/definitions.json:ro # opsional
     healthcheck:
-      test: ['CMD', 'rabbitmq-diagnostics', 'ping']
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
       interval: 30s
       timeout: 5s
       retries: 5
