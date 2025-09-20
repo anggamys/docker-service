@@ -1,39 +1,39 @@
 general: {
-    #configs_folder = /usr/local/etc/janus/streams
-}
+    configs_folder = "/usr/local/etc/janus/streams";
+};
 
 h264-upper-camera: {
-    type            = rtp
-    id              = 10
-    description     = "Video streaming for upper camera"
-    audio           = false
-    video           = true
+    type = "rtp";
+    id = 10;
+    description = "Video streaming for upper camera";
+    audio = false;
+    video = true;
 
-    videoport       = 10000
-    videortcpport   = 10001
+    videoport = 10000;
+    videortcpport = 10001;
 
-    videopt         = 126
-    videocodec      = "h264"
-    videofmtp       = "profile-level-id=42e01f;packetization-mode=1"
-    videoiface      = "0.0.0.0"
+    videopt = 126;
+    videocodec = "h264";
+    videofmtp = "profile-level-id=42e01f;packetization-mode=1";
+    videoiface = "0.0.0.0";
 
-    secret          = "adminpwd"
-}
+    secret = "adminpwd";
+};
 
 h264-underwater-camera: {
-    type            = rtp
-    id              = 11
-    description     = "Video streaming for underwater camera"
-    audio           = false
-    video           = true
+    type = "rtp";
+    id = 11;
+    description = "Video streaming for underwater camera";
+    audio = false;
+    video = true;
 
-    videoport       = 10002
-    videortcpport   = 10003
+    videoport = 10002;
+    videortcpport = 10003;
 
-    videopt         = 126
-    videocodec      = "h264"
-    videofmtp       = "profile-level-id=42e01f;packetization-mode=1"
-    videoiface      = "0.0.0.0"
+    videopt = 126;
+    videocodec = "h264";
+    videofmtp = "profile-level-id=42e01f;packetization-mode=1";
+    videoiface = "0.0.0.0";
 
-    secret          = "adminpwd"
-}
+    secret = "adminpwd";
+};
