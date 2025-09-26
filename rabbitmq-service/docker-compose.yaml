@@ -3,22 +3,22 @@ services:
     image: rabbitmq:3-management
     container_name: rabbitmq-mqtt
     ports:
-      - "5672:5672" # AMQP
-      - "15672:15672" # Management UI
-      - "1883:1883" # MQTT TCP
-      - "15675:15675" # Web MQTT (ws://host:15675/ws)
+      - '5672:5672' # AMQP
+      - '15672:15672' # Management UI
+      - '1883:1883' # MQTT TCP
+      - '15675:15675' # Web MQTT (ws://host:15675/ws)
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
       - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
       - ./definitions.json:/etc/rabbitmq/definitions.json:ro
     healthcheck:
-      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      test: ['CMD', 'rabbitmq-diagnostics', 'ping']
       interval: 30s
       timeout: 5s
       retries: 5
     entrypoint: >
       bash -lc "
-      rabbitmq-plugins enable --offline rabbitmq_mqtt rabbitmq_web_mqtt &&
+      rabbitmq-plugins enable --offline rabbitmq_mqtt rabbitmq_web_mqtt rabbitmq_tracing &&
       rabbitmq-server
       "
 

@@ -1,7 +1,5 @@
 {
-  "users": [
-    { "name": "mqtt", "password": "mqttpass", "tags": "administrator" }
-  ],
+  "users": [{ "name": "mqtt", "password": "mqttpass", "tags": "administrator" }],
   "vhosts": [{ "name": "/" }, { "name": "factory" }],
   "permissions": [
     {
@@ -23,6 +21,15 @@
     {
       "name": "mqtt_port_to_vhost_mapping",
       "value": { "1883": "/" }
+    }
+  ],
+  "traces": [
+    {
+      "name": "mqtt-trace",
+      "vhost": "/",
+      "format": "text",
+      "pattern": "#",
+      "max_length": 100000
     }
   ]
 }
