@@ -35,6 +35,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates tini \
+    ca-certificates tini \
     libmicrohttpd12 libjansson4 libssl3 libsrtp2-1 libnice10 \
     libglib2.0-0 libopus0 libogg0 libcurl4 libwebsockets16 \
     libsofia-sip-ua0 liblua5.3-0 libconfig9 zlib1g \
@@ -50,3 +51,6 @@ ENTRYPOINT ["/usr/bin/tini", "--"]
 ENV LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib/x86_64-linux-gnu
 EXPOSE 8088/tcp 8188/tcp 10000-10200/udp
 CMD ["/usr/local/bin/janus", "-F", "/usr/local/etc/janus"]
+
+EXPOSE 8088 8188 10000-10200/udp
+

@@ -1,16 +1,16 @@
 {
-  "users": [{ "name": "mqtt", "password": "mqttpass", "tags": "administrator" }],
+  "users": [{ "name": "ResearchServer", "password": "ResearchServer", "tags": "administrator" }],
   "vhosts": [{ "name": "/" }, { "name": "factory" }],
   "permissions": [
     {
-      "user": "mqtt",
+      "user": "ResearchServer",
       "vhost": "/",
       "configure": ".*",
       "write": ".*",
       "read": ".*"
     },
     {
-      "user": "mqtt",
+      "user": "ResearchServer",
       "vhost": "factory",
       "configure": ".*",
       "write": ".*",
