@@ -8,11 +8,15 @@ services:
       - "${PORTAINER_EDGE_PORT}:8000"
     volumes:
       - ${PORTAINER_DATA_VOLUME}:/data
-      - /var/run/docker.sock:/var/run/docker.sock:ro
+      # Docker socket (full access)
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Podman socket (rootless user 1000, sesuaikan UID jika berbeda)
+      - /run/user/1000/podman/podman.sock:/var/run/podman/podman.sock
     environment:
       - TZ=${PORTAINER_TZ}
     security_opt:
       - no-new-privileges:true
+      - label=disable # penting untuk akses socket Podman rootless
 
 volumes:
   portainer_data:
