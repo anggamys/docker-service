@@ -2,12 +2,11 @@ services:
   rabbitmq:
     image: rabbitmq:3-management
     container_name: rabbitmq-mqtt
-    restart: unless-stopped
     ports:
-      - "127.0.0.1:5672:5672"   # AMQP (hanya bisa diakses lokal)
-      - "127.0.0.1:15672:15672" # Management UI (hanya lokal, lewat Nginx proxy)
-      - "0.0.0.0:1883:1883"   # MQTT TCP (hanya lokal)
-      - "127.0.0.1:15675:15675" # Web MQTT (hanya lokal, lewat Nginx proxy)
+      - "127.0.0.1:5672:5672"
+      - "127.0.0.1:15672:15672"
+      - "0.0.0.0:1883:1883"
+      - "127.0.0.1:15675:15675"
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
       - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
@@ -22,7 +21,12 @@ services:
       rabbitmq-plugins enable --offline rabbitmq_mqtt rabbitmq_web_mqtt rabbitmq_tracing &&
       rabbitmq-server
       "
+    networks:
+      - local-network
 
 volumes:
   rabbitmq_data:
 
+networks:
+  local-network:
+    external: true

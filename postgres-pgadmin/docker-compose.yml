@@ -3,25 +3,25 @@ services:
     image: postgres:15
     container_name: local_pgdb
     ports:
-      - '5432:5432'
+      - "5432:5432"
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - local_pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER}']
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
       interval: 10s
       timeout: 5s
       retries: 5
     networks:
-      - pgnet
+      - local-network
 
   pgadmin:
-    image: dpage/pgadmin4:8.6
+    image: dpage/pgadmin4:9.0
     container_name: pgadmin4_container
     ports:
-      - '8888:80'
+      - "8888:80"
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
@@ -30,11 +30,12 @@ services:
     depends_on:
       - db
     networks:
-      - pgnet
+      - local-network
 
 volumes:
   local_pgdata:
   pgadmin-data:
 
 networks:
-  pgnet:
+  local-network:
+    external: true
