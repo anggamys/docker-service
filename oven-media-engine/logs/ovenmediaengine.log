@@ -1,0 +1,375 @@
+[2025-11-05 05:53:47.787] I [OvenMediaEngine:1] Config | config_manager.cpp:233  | Trying to set logfile in directory... (/var/log/ovenmediaengine)
+[2025-11-05 05:53:47.788] I [OvenMediaEngine:1] Config | config_manager.cpp:255  | Trying to load configurations... (origin_conf/Server.xml)
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:23   | OvenMediaEngine v0.19.0 (v0.19.0) is started on [db4c217d0c5a] (Linux x86_64 - 6.8.0-87-generic, #88~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Oct 14 14:03:14 UTC 2)
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:27   | With modules:
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:28   |   FFmpeg 5.1.4
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:29   |     Configuration: --prefix=/opt/ovenmediaengine --extra-cflags='-I/opt/ovenmediaengine/include ' --extra-ldflags=' -L/opt/ovenmediaengine/lib -Wl,-rpath,/opt/ovenmediaengine/lib -Wl,--disable-new-dtags' --extra-libs=-ldl --enable-gpl --enable-nonfree --disable-everything --disable-programs --disable-avdevice --disable-dwt --disable-lsp --disable-faan --disable-pixelutils --enable-shared --enable-zlib --enable-libopus --enable-libvpx --enable-libfdk_aac --enable-libopenh264 --enable-openssl --enable-network --enable-libsrt --enable-dct --enable-rdft --enable-libwebp --disable-nvdec --disable-nvdec --disable-vaapi --disable-vdpau --disable-cuda-llvm --disable-cuvid --disable-ffnvcodec --enable-libx264 --enable-encoder='libvpx_vp8,libopus,libfdk_aac,libopenh264,mjpeg,png,libwebp,libx264' --enable-decoder='aac,aac_latm,aac_fixed,mp3float,mp3,h264,hevc,opus,vp8' --enable-parser='aac,aac_latm,aac_fixed,h264,hevc,opus,vp8' --enable-protocol='tcp,udp,rtp,file,rtmp,tls,rtmps,libsrt' --enable-demuxer='rtsp,flv,live_flv,mp4,mp3' --enable-muxer='mp4,webm,mpegts,flv,mpjpeg' --enable-filter='asetnsamples,aresample,aformat,channelmap,channelsplit,scale,transpose,fps,settb,asettb,crop,format'
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:30   |     libavformat: 59.27.100
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:31   |     libavcodec: 59.37.100
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:32   |     libavutil: 57.28.100
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:33   |     libavfilter: 8.44.100
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:34   |     libswresample: 4.7.100
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:35   |     libswscale: 6.7.100
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:36   |   SRT: 1.5.2
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:37   |   SRTP: libsrtp2 2.4.2
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:38   |   OpenSSL: OpenSSL 3.0.7 1 Nov 2022
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:39   |     Configuration: compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DNDEBUG
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:40   |   JsonCpp: 1.9.3
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:41   |   jemalloc: 5.3.0-0-g54eaed1d8b56b1aa528be3bdd1877e59c56fa90c
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:42   |   spdlog: 1.15.1
+[2025-11-05 05:53:47.792] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:73   | Server ID : 788eaae4-a301-431c-a58a-701ea6b5fbbf
+[2025-11-05 05:53:48.110] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:91   | Resolved public IP address (36.81.157.137) from stun server (stun.ovenmediaengine.com:13478)
+[2025-11-05 05:53:48.110] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:109  | This host supports IPv4 and IPv6
+[2025-11-05 05:53:48.115] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:126  | Trying to create MediaRouter...
+[2025-11-05 05:53:48.115] I [OvenMediaEngine:1] MediaRouter | mediarouter.cpp:40   | Mediarouter has been started.
+[2025-11-05 05:53:48.115] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:129  | Trying to create WebRTC Publisher...
+[2025-11-05 05:53:48.115] I [OvenMediaEngine:1] Signalling.P2P | rtc_p2p_manager.cpp:27   | P2P is disabled in the configuration
+[2025-11-05 05:53:48.116] I [OvenMediaEngine:1] HTTP.Server | http_server_manager.cpp:319  | WebRTC Publisher is listening on *:3333 (TLS: *:3334)...
+[2025-11-05 05:53:48.116] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10000
+[2025-11-05 05:53:48.116] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10001
+[2025-11-05 05:53:48.116] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10002
+[2025-11-05 05:53:48.116] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10003
+[2025-11-05 05:53:48.116] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10004
+[2025-11-05 05:53:48.117] I [OvenMediaEngine:1] ICE | ice_port.cpp:113  | ICE ports are listening on *:10004/UDP (0x7f9637f08690), *:10003/UDP (0x7f9637f08990), *:10002/UDP (0x7f9637f08c90), *:10001/UDP (0x7f9637f08f90), *:10000/UDP (0x7f9637f09290) (for WebRTC Publisher)
+[2025-11-05 05:53:48.117] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:199  | TURN port is listening on *:3478/TCP (for WebRTC Publisher)
+[2025-11-05 05:53:48.117] I [OvenMediaEngine:1] Publisher | publisher.cpp:19   | WebRTC Publisher has been started.
+[2025-11-05 05:53:48.117] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:130  | Trying to create LLHLS Publisher...
+[2025-11-05 05:53:48.118] I [OvenMediaEngine:1] HTTP.Server | http_server_manager.cpp:319  | LLHLS Publisher is listening on *:3333 (TLS: *:3334)...
+[2025-11-05 05:53:48.118] I [OvenMediaEngine:1] Publisher | publisher.cpp:19   | LLHLS Publisher has been started.
+[2025-11-05 05:53:48.118] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:131  | Trying to create OVT Publisher...
+[2025-11-05 05:53:48.118] I [OvenMediaEngine:1] OVT | ovt_publisher.cpp:90   | OVTPublisher is listening on *:9000/TCP...
+[2025-11-05 05:53:48.118] I [OvenMediaEngine:1] Publisher | publisher.cpp:19   | OVTPublisher has been started.
+[2025-11-05 05:53:48.119] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:132  | Trying to create File Publisher...
+[2025-11-05 05:53:48.119] I [OvenMediaEngine:1] Publisher | publisher.cpp:19   | FilePublisher has been started.
+[2025-11-05 05:53:48.119] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:133  | Trying to create Push Publisher...
+[2025-11-05 05:53:48.119] I [OvenMediaEngine:1] Publisher | publisher.cpp:19   | PushPublisher has been started.
+[2025-11-05 05:53:48.119] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:134  | Trying to create Thumbnail Publisher...
+[2025-11-05 05:53:48.119] W [OvenMediaEngine:1] Thumbnail | thumbnail_publisher.cpp:79   | ThumbnailPublisher is disabled by configuration
+[2025-11-05 05:53:48.119] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:135  | Trying to create HLS Publisher...
+[2025-11-05 05:53:48.120] W [OvenMediaEngine:1] HLS Publisher | hls_publisher.cpp:78   | HLSv3 Publisher is disabled by configuration
+[2025-11-05 05:53:48.120] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:136  | Trying to create SRT Publisher...
+[2025-11-05 05:53:48.120] W [OvenMediaEngine:1] SRTPublisher | srt_publisher.cpp:43   | SRTPublisher is disabled by configuration
+[2025-11-05 05:53:48.120] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:139  | Trying to create Transcoder...
+[2025-11-05 05:53:48.120] I [OvenMediaEngine:1] Transcoder | transcoder_gpu.cpp:94   | Trying to release Transcoder GPU resources
+[2025-11-05 05:53:48.120] I [OvenMediaEngine:1] Transcoder | transcoder_gpu.cpp:45   | Trying to check available hardware accelerators
+[2025-11-05 05:53:48.120] W [OvenMediaEngine:1] Transcoder | transcoder_gpu.cpp:54   | No supported NVIDIA accelerator
+[2025-11-05 05:53:48.120] W [OvenMediaEngine:1] Transcoder | transcoder_gpu.cpp:64   | No supported Xilinx Media accelerator
+[2025-11-05 05:53:48.120] W [OvenMediaEngine:1] Transcoder | transcoder_gpu.cpp:74   | No supported Intel QuickSync accelerator
+[2025-11-05 05:53:48.120] W [OvenMediaEngine:1] Transcoder | transcoder_gpu.cpp:84   | No supported Netint VPU accelerator
+[2025-11-05 05:53:48.120] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:142  | Trying to create WebRTC Provider...
+[2025-11-05 05:53:48.120] I [OvenMediaEngine:1] Signalling.P2P | rtc_p2p_manager.cpp:27   | P2P is disabled in the configuration
+[2025-11-05 05:53:48.120] I [OvenMediaEngine:1] HTTP.Server | http_server_manager.cpp:319  | WebRTCProvider is listening on *:3333 (TLS: *:3334)...
+[2025-11-05 05:53:48.120] I [OvenMediaEngine:1] HTTP.Server | http_server_manager.cpp:319  | WebRTCProvider is listening on *:3333 (TLS: *:3334)...
+[2025-11-05 05:53:48.120] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10000
+[2025-11-05 05:53:48.120] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10001
+[2025-11-05 05:53:48.121] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10002
+[2025-11-05 05:53:48.121] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10003
+[2025-11-05 05:53:48.121] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10004
+[2025-11-05 05:53:48.121] I [OvenMediaEngine:1] ICE | ice_port.cpp:113  | ICE ports are listening on *:10004/UDP (0x7f9637f08690), *:10003/UDP (0x7f9637f08990), *:10002/UDP (0x7f9637f08c90), *:10001/UDP (0x7f9637f08f90), *:10000/UDP (0x7f9637f09290) (for WebRTCProvider)
+[2025-11-05 05:53:48.121] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:199  | TURN port is listening on *:3478/TCP (for WebRTCProvider)
+[2025-11-05 05:53:48.123] I [OvenMediaEngine:1] Provider | provider.cpp:37   | WebRTCProvider has been started.
+[2025-11-05 05:53:48.123] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:143  | Trying to create MPEG-TS Provider...
+[2025-11-05 05:53:48.123] W [OvenMediaEngine:1] MpegtsProvider | mpegts_provider.cpp:147  | MPEGTSProvider is disabled by configuration
+[2025-11-05 05:53:48.123] I [OvenMediaEngine:1] MpegtsProvider | mpegts_provider.cpp:39   | Terminated Mpegts Provider module.
+[2025-11-05 05:53:48.123] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:144  | Trying to create SRT Provider...
+[2025-11-05 05:53:48.124] I [OvenMediaEngine:1] SrtProvider | srt_provider.cpp:110  | SrtProvider is listening on *:9999/SRT
+[2025-11-05 05:53:48.124] I [OvenMediaEngine:1] Provider | provider.cpp:37   | SrtProvider has been started.
+[2025-11-05 05:53:48.124] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:145  | Trying to create RTMP Provider...
+[2025-11-05 05:53:48.125] I [OvenMediaEngine:1] RTMPProvider | rtmp_provider.cpp:151  | RTMPProvider is listening on *:1935
+[2025-11-05 05:53:48.125] I [OvenMediaEngine:1] Provider | provider.cpp:37   | RTMPProvider has been started.
+[2025-11-05 05:53:48.125] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:146  | Trying to create OVT Provider...
+[2025-11-05 05:53:48.125] I [OvenMediaEngine:1] Provider | provider.cpp:37   | OVTProvider has been started.
+[2025-11-05 05:53:48.125] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:147  | Trying to create RTSPC Provider...
+[2025-11-05 05:53:48.126] I [OvenMediaEngine:1] Provider | provider.cpp:37   | RTSPCProvider has been started.
+[2025-11-05 05:53:48.126] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:148  | Trying to create File Provider...
+[2025-11-05 05:53:48.126] I [OvenMediaEngine:1] Provider | provider.cpp:37   | FileProvider has been started.
+[2025-11-05 05:53:48.126] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:149  | Trying to create Scheduled Provider...
+[2025-11-05 05:53:48.126] I [OvenMediaEngine:1] Provider | provider.cpp:37   | ScheduledProvider has been started.
+[2025-11-05 05:53:48.126] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:150  | Trying to create Multiplex Provider...
+[2025-11-05 05:53:48.127] I [OvenMediaEngine:1] Provider | provider.cpp:37   | MultiplexProvider has been started.
+[2025-11-05 05:53:48.127] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:157  | All modules are initialized successfully
+[2025-11-05 05:53:48.127] I [OvenMediaEngine:1] Monitor | monitoring.cpp:94   | OvenMediaEngine(788eaae4-a301-431c-a58a-701ea6b5fbbf) ServerMetric has been started for monitoring - 2025-11-05T05:53:48.127+00:00
+[2025-11-05 05:53:48.127] E [OvenMediaEngine:1] Certificate | certificate.cpp:47   | Failed to create a certificate for VirtualHost [default]:
+	Reason: [default] Could not create a certificate from file - [OpenSSL] error:16000069:STORE routines::unregistered scheme (369098857)
+	Cert file path: origin_conf/./cert.crt
+	Chain cert file path: origin_conf/./cert.ca-bundle
+	Private key file path: origin_conf/./cert.key
+[2025-11-05 05:53:48.127] I [OvenMediaEngine:1] Monitor | server_metrics.cpp:61   | Create HostMetrics(default/788eaae4-a301-431c-a58a-701ea6b5fbbf/#default#) for monitoring
+[2025-11-05 05:53:48.127] I [OvenMediaEngine:1] Orchestrator | orchestrator.cpp:1302 | Trying to create an application: [#default#app]
+[2025-11-05 05:53:48.128] I [OvenMediaEngine:1] Monitor | host_metrics.cpp:58   | Create ApplicationMetrics(#default#app/788eaae4-a301-431c-a58a-701ea6b5fbbf/#default#app) for monitoring
+[2025-11-05 05:53:48.128] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:52   | [#default#app(0)] Created Mediarouter application. Worker(1) DelayBufferTime(0)
+[2025-11-05 05:53:48.128] I [OvenMediaEngine:1] MediaRouter | mediarouter.cpp:83   | Created Mediarouter. app(#default#app)
+[2025-11-05 05:53:48.128] I [OvenMediaEngine:1] Publisher | application.cpp:226  | WebRTC Publisher Application has created [#default#app] application
+[2025-11-05 05:53:48.129] I [OvenMediaEngine:1] Publisher | application.cpp:226  | LLHLS Publisher Application has created [#default#app] application
+[2025-11-05 05:53:48.129] I [OvenMediaEngine:1] Publisher | application.cpp:226  | OVTPublisher Application has created [#default#app] application
+[2025-11-05 05:53:48.129] W [OvenMediaEngine:1] Publisher | publisher.cpp:68   | File publisher is disabled in #default#app application, so it was not created
+[2025-11-05 05:53:48.129] W [OvenMediaEngine:1] Publisher | publisher.cpp:68   | Push publisher is disabled in #default#app application, so it was not created
+[2025-11-05 05:53:48.129] I [OvenMediaEngine:1] Transcoder | transcoder_application.cpp:34   | Created transcoder application. [#default#app]
+[2025-11-05 05:53:48.129] I [OvenMediaEngine:1] Transcoder | transcoder.cpp:97   | Transcoder has created [config][#default#app] application
+[2025-11-05 05:53:48.129] I [OvenMediaEngine:1] Provider | application.cpp:46   | WebRTCProvider has created [#default#app] application
+[2025-11-05 05:53:48.129] I [OvenMediaEngine:1] Provider | application.cpp:46   | SrtProvider has created [#default#app] application
+[2025-11-05 05:53:48.130] I [OvenMediaEngine:1] Provider | application.cpp:46   | RTMPProvider has created [#default#app] application
+[2025-11-05 05:53:48.130] I [OvenMediaEngine:1] Provider | application.cpp:46   | OVTProvider has created [#default#app] application
+[2025-11-05 05:53:48.130] I [OvenMediaEngine:1] Provider | application.cpp:46   | RTSPCProvider has created [#default#app] application
+[2025-11-05 05:53:48.130] I [OvenMediaEngine:1] Provider | application.cpp:46   | ScheduledProvider has created [#default#app] application
+[2025-11-05 05:53:48.130] W [OvenMediaEngine:1] Provider | provider.cpp:91   | Multiplex provider is disabled in #default#app application, so it was not created
+[2025-11-05 05:53:48.130] I [OvenMediaEngine:1] APIServer | api_server.cpp:123  | API Server is disabled by configuration
+[2025-11-05 05:55:05.933] W [OvenMediaEngine:1] OvenMediaEngine | signals.cpp:343  | Caught terminate signal 15. OME is terminating...
+[2025-11-05 05:55:05.934] I [OvenMediaEngine:1] Monitor | server_metrics.cpp:80   | Delete HostMetrics(default/788eaae4-a301-431c-a58a-701ea6b5fbbf/#default#) for monitoring
+[2025-11-05 05:55:05.934] I [OvenMediaEngine:1] Orchestrator | orchestrator.cpp:277  | Trying to delete an application: [#default#app] (0)
+[2025-11-05 05:55:05.934] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:243  | Unregistered observer. app(#default#app) type(3)
+[2025-11-05 05:55:05.934] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:205  | Unregistered connector. app(#default#app) type(0)
+[2025-11-05 05:55:05.934] I [OvenMediaEngine:1] Provider | application.cpp:61   | ScheduledProvider has deleted [#default#app] application
+[2025-11-05 05:55:05.934] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:205  | Unregistered connector. app(#default#app) type(0)
+[2025-11-05 05:55:05.997] I [OvenMediaEngine:1] Provider | application.cpp:61   | RTSPCProvider has deleted [#default#app] application
+[2025-11-05 05:55:05.997] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:205  | Unregistered connector. app(#default#app) type(0)
+[2025-11-05 05:55:06.097] I [OvenMediaEngine:1] Provider | application.cpp:61   | OVTProvider has deleted [#default#app] application
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:205  | Unregistered connector. app(#default#app) type(0)
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] Provider | application.cpp:61   | RTMPProvider has deleted [#default#app] application
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:205  | Unregistered connector. app(#default#app) type(0)
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] Provider | application.cpp:61   | SrtProvider has deleted [#default#app] application
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:205  | Unregistered connector. app(#default#app) type(0)
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] Provider | application.cpp:61   | WebRTCProvider has deleted [#default#app] application
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:243  | Unregistered observer. app(#default#app) type(1)
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:205  | Unregistered connector. app(#default#app) type(1)
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] Transcoder | transcoder.cpp:133  | Transcoder has deleted [config][#default#app] application
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] Transcoder | transcoder_application.cpp:39   | Transcoder application has been destroyed. [#default#app]
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] Publisher | application.cpp:245  | OVTPublisher Application has deleted [#default#app] application
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:243  | Unregistered observer. app(#default#app) type(0)
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] Publisher | application.cpp:245  | OVTPublisher Application has deleted [#default#app] application
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] Publisher | application.cpp:245  | OVTPublisher Application has deleted [#default#app] application
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] Publisher | application.cpp:245  | LLHLS Publisher Application has deleted [#default#app] application
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:243  | Unregistered observer. app(#default#app) type(0)
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] Publisher | application.cpp:245  | LLHLS Publisher Application has deleted [#default#app] application
+[2025-11-05 05:55:06.098] I [OvenMediaEngine:1] Publisher | application.cpp:245  | LLHLS Publisher Application has deleted [#default#app] application
+[2025-11-05 05:55:06.099] I [OvenMediaEngine:1] Publisher | application.cpp:245  | WebRTC Publisher Application has deleted [#default#app] application
+[2025-11-05 05:55:06.099] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:243  | Unregistered observer. app(#default#app) type(0)
+[2025-11-05 05:55:06.099] I [OvenMediaEngine:1] Publisher | application.cpp:245  | WebRTC Publisher Application has deleted [#default#app] application
+[2025-11-05 05:55:06.099] I [OvenMediaEngine:1] Publisher | application.cpp:245  | WebRTC Publisher Application has deleted [#default#app] application
+[2025-11-05 05:55:06.099] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:73   | [#default#app(0)] Destroyed Mediarouter application. worker(1)
+[2025-11-05 05:55:06.099] I [OvenMediaEngine:1] MediaRouter | mediarouter.cpp:101  | Mediarouter has been destroyed. app(#default#app)
+[2025-11-05 05:55:06.099] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:179  | Trying to release WebRTC Provider...
+[2025-11-05 05:55:06.290] I [OvenMediaEngine:1] Provider | provider.cpp:61   | WebRTCProvider has been stopped.
+[2025-11-05 05:55:06.290] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:181  | Trying to release SRT Provider...
+[2025-11-05 05:55:06.391] I [OvenMediaEngine:1] Provider | provider.cpp:61   | SrtProvider has been stopped.
+[2025-11-05 05:55:06.391] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:182  | Trying to release RTMP Provider...
+[2025-11-05 05:55:06.489] I [OvenMediaEngine:1] Provider | provider.cpp:61   | RTMPProvider has been stopped.
+[2025-11-05 05:55:06.489] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:183  | Trying to release OVT Provider...
+[2025-11-05 05:55:06.489] I [OvenMediaEngine:1] Provider | provider.cpp:61   | OVTProvider has been stopped.
+[2025-11-05 05:55:06.489] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:184  | Trying to release RTSPC Provider...
+[2025-11-05 05:55:06.489] I [OvenMediaEngine:1] Provider | provider.cpp:61   | RTSPCProvider has been stopped.
+[2025-11-05 05:55:06.489] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:185  | Trying to release File Provider...
+[2025-11-05 05:55:06.489] I [OvenMediaEngine:1] Provider | provider.cpp:61   | FileProvider has been stopped.
+[2025-11-05 05:55:06.490] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:186  | Trying to release Scheduled Provider...
+[2025-11-05 05:55:06.490] I [OvenMediaEngine:1] Provider | provider.cpp:61   | ScheduledProvider has been stopped.
+[2025-11-05 05:55:06.490] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:187  | Trying to release Multiplex Provider...
+[2025-11-05 05:55:06.490] I [OvenMediaEngine:1] Provider | provider.cpp:61   | MultiplexProvider has been stopped.
+[2025-11-05 05:55:06.490] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:191  | Trying to release Transcoder...
+[2025-11-05 05:55:06.490] I [OvenMediaEngine:1] Transcoder | transcoder_gpu.cpp:94   | Trying to release Transcoder GPU resources
+[2025-11-05 05:55:06.490] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:193  | Trying to release WebRTC Publisher...
+[2025-11-05 05:55:06.490] I [OvenMediaEngine:1] Publisher | publisher.cpp:42   | WebRTC Publisher has been stopped.
+[2025-11-05 05:55:06.490] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:194  | Trying to release LLHLS Publisher...
+[2025-11-05 05:55:06.490] I [OvenMediaEngine:1] Publisher | publisher.cpp:42   | LLHLS Publisher has been stopped.
+[2025-11-05 05:55:06.490] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:195  | Trying to release OVT Publisher...
+[2025-11-05 05:55:06.525] I [OvenMediaEngine:1] Publisher | publisher.cpp:42   | OVTPublisher has been stopped.
+[2025-11-05 05:55:06.525] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:196  | Trying to release File Publisher...
+[2025-11-05 05:55:06.525] I [OvenMediaEngine:1] Publisher | publisher.cpp:42   | FilePublisher has been stopped.
+[2025-11-05 05:55:06.525] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:197  | Trying to release Push Publisher...
+[2025-11-05 05:55:06.525] I [OvenMediaEngine:1] Publisher | publisher.cpp:42   | PushPublisher has been stopped.
+[2025-11-05 05:55:06.525] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:202  | Trying to release MediaRouter...
+[2025-11-05 05:55:06.525] I [OvenMediaEngine:1] MediaRouter | mediarouter.cpp:49   | Mediarouter has been stopped.
+[2025-11-05 05:55:06.525] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:359  | Uninitializing TCP socket pool...
+[2025-11-05 05:55:06.525] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:361  | Uninitializing UDP socket pool...
+[2025-11-05 05:55:06.611] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:364  | OvenMediaEngine will be terminated
+[2025-11-05 05:55:06.611] I [OvenMediaEngine:1] Provider | provider.cpp:61   | FileProvider has been stopped.
+[2025-11-05 05:55:06.611] I [OvenMediaEngine:1] Provider | provider.cpp:61   | RTSPCProvider has been stopped.
+[2025-11-05 05:55:06.611] I [OvenMediaEngine:1] Provider | provider.cpp:61   | OVTProvider has been stopped.
+[2025-11-05 05:55:06.612] I [OvenMediaEngine:1] RTMPProvider | rtmp_provider.cpp:72   | Terminated Rtmp Provider module.
+[2025-11-05 05:55:06.612] I [OvenMediaEngine:1] SrtProvider | srt_provider.cpp:40   | Terminated SRT Provider module.
+[2025-11-05 05:55:07.590] I [OvenMediaEngine:1] Config | config_manager.cpp:233  | Trying to set logfile in directory... (/var/log/ovenmediaengine)
+[2025-11-05 05:55:07.590] I [OvenMediaEngine:1] Config | config_manager.cpp:255  | Trying to load configurations... (origin_conf/Server.xml)
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:23   | OvenMediaEngine v0.19.0 (v0.19.0) is started on [db4c217d0c5a] (Linux x86_64 - 6.8.0-87-generic, #88~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Oct 14 14:03:14 UTC 2)
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:27   | With modules:
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:28   |   FFmpeg 5.1.4
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:29   |     Configuration: --prefix=/opt/ovenmediaengine --extra-cflags='-I/opt/ovenmediaengine/include ' --extra-ldflags=' -L/opt/ovenmediaengine/lib -Wl,-rpath,/opt/ovenmediaengine/lib -Wl,--disable-new-dtags' --extra-libs=-ldl --enable-gpl --enable-nonfree --disable-everything --disable-programs --disable-avdevice --disable-dwt --disable-lsp --disable-faan --disable-pixelutils --enable-shared --enable-zlib --enable-libopus --enable-libvpx --enable-libfdk_aac --enable-libopenh264 --enable-openssl --enable-network --enable-libsrt --enable-dct --enable-rdft --enable-libwebp --disable-nvdec --disable-nvdec --disable-vaapi --disable-vdpau --disable-cuda-llvm --disable-cuvid --disable-ffnvcodec --enable-libx264 --enable-encoder='libvpx_vp8,libopus,libfdk_aac,libopenh264,mjpeg,png,libwebp,libx264' --enable-decoder='aac,aac_latm,aac_fixed,mp3float,mp3,h264,hevc,opus,vp8' --enable-parser='aac,aac_latm,aac_fixed,h264,hevc,opus,vp8' --enable-protocol='tcp,udp,rtp,file,rtmp,tls,rtmps,libsrt' --enable-demuxer='rtsp,flv,live_flv,mp4,mp3' --enable-muxer='mp4,webm,mpegts,flv,mpjpeg' --enable-filter='asetnsamples,aresample,aformat,channelmap,channelsplit,scale,transpose,fps,settb,asettb,crop,format'
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:30   |     libavformat: 59.27.100
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:31   |     libavcodec: 59.37.100
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:32   |     libavutil: 57.28.100
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:33   |     libavfilter: 8.44.100
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:34   |     libswresample: 4.7.100
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:35   |     libswscale: 6.7.100
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:36   |   SRT: 1.5.2
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:37   |   SRTP: libsrtp2 2.4.2
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:38   |   OpenSSL: OpenSSL 3.0.7 1 Nov 2022
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:39   |     Configuration: compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DNDEBUG
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:40   |   JsonCpp: 1.9.3
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:41   |   jemalloc: 5.3.0-0-g54eaed1d8b56b1aa528be3bdd1877e59c56fa90c
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | banner.cpp:42   |   spdlog: 1.15.1
+[2025-11-05 05:55:07.595] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:73   | Server ID : 788eaae4-a301-431c-a58a-701ea6b5fbbf
+[2025-11-05 05:55:08.130] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:91   | Resolved public IP address (36.81.157.137) from stun server (stun.ovenmediaengine.com:13478)
+[2025-11-05 05:55:08.130] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:109  | This host supports IPv4 and IPv6
+[2025-11-05 05:55:08.136] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:126  | Trying to create MediaRouter...
+[2025-11-05 05:55:08.136] I [OvenMediaEngine:1] MediaRouter | mediarouter.cpp:40   | Mediarouter has been started.
+[2025-11-05 05:55:08.136] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:129  | Trying to create WebRTC Publisher...
+[2025-11-05 05:55:08.136] I [OvenMediaEngine:1] Signalling.P2P | rtc_p2p_manager.cpp:27   | P2P is disabled in the configuration
+[2025-11-05 05:55:08.137] I [OvenMediaEngine:1] HTTP.Server | http_server_manager.cpp:319  | WebRTC Publisher is listening on *:3333 (TLS: *:3334)...
+[2025-11-05 05:55:08.137] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10000
+[2025-11-05 05:55:08.137] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10001
+[2025-11-05 05:55:08.137] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10002
+[2025-11-05 05:55:08.137] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10003
+[2025-11-05 05:55:08.137] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10004
+[2025-11-05 05:55:08.138] I [OvenMediaEngine:1] ICE | ice_port.cpp:113  | ICE ports are listening on *:10004/UDP (0x711036908690), *:10003/UDP (0x711036908990), *:10002/UDP (0x711036908c90), *:10001/UDP (0x711036908f90), *:10000/UDP (0x711036909290) (for WebRTC Publisher)
+[2025-11-05 05:55:08.138] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:199  | TURN port is listening on *:3478/TCP (for WebRTC Publisher)
+[2025-11-05 05:55:08.138] I [OvenMediaEngine:1] Publisher | publisher.cpp:19   | WebRTC Publisher has been started.
+[2025-11-05 05:55:08.138] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:130  | Trying to create LLHLS Publisher...
+[2025-11-05 05:55:08.138] I [OvenMediaEngine:1] HTTP.Server | http_server_manager.cpp:319  | LLHLS Publisher is listening on *:3333 (TLS: *:3334)...
+[2025-11-05 05:55:08.138] I [OvenMediaEngine:1] Publisher | publisher.cpp:19   | LLHLS Publisher has been started.
+[2025-11-05 05:55:08.138] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:131  | Trying to create OVT Publisher...
+[2025-11-05 05:55:08.139] I [OvenMediaEngine:1] OVT | ovt_publisher.cpp:90   | OVTPublisher is listening on *:9000/TCP...
+[2025-11-05 05:55:08.139] I [OvenMediaEngine:1] Publisher | publisher.cpp:19   | OVTPublisher has been started.
+[2025-11-05 05:55:08.139] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:132  | Trying to create File Publisher...
+[2025-11-05 05:55:08.139] I [OvenMediaEngine:1] Publisher | publisher.cpp:19   | FilePublisher has been started.
+[2025-11-05 05:55:08.139] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:133  | Trying to create Push Publisher...
+[2025-11-05 05:55:08.139] I [OvenMediaEngine:1] Publisher | publisher.cpp:19   | PushPublisher has been started.
+[2025-11-05 05:55:08.140] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:134  | Trying to create Thumbnail Publisher...
+[2025-11-05 05:55:08.140] W [OvenMediaEngine:1] Thumbnail | thumbnail_publisher.cpp:79   | ThumbnailPublisher is disabled by configuration
+[2025-11-05 05:55:08.140] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:135  | Trying to create HLS Publisher...
+[2025-11-05 05:55:08.140] W [OvenMediaEngine:1] HLS Publisher | hls_publisher.cpp:78   | HLSv3 Publisher is disabled by configuration
+[2025-11-05 05:55:08.140] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:136  | Trying to create SRT Publisher...
+[2025-11-05 05:55:08.140] W [OvenMediaEngine:1] SRTPublisher | srt_publisher.cpp:43   | SRTPublisher is disabled by configuration
+[2025-11-05 05:55:08.140] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:139  | Trying to create Transcoder...
+[2025-11-05 05:55:08.140] I [OvenMediaEngine:1] Transcoder | transcoder_gpu.cpp:94   | Trying to release Transcoder GPU resources
+[2025-11-05 05:55:08.140] I [OvenMediaEngine:1] Transcoder | transcoder_gpu.cpp:45   | Trying to check available hardware accelerators
+[2025-11-05 05:55:08.140] W [OvenMediaEngine:1] Transcoder | transcoder_gpu.cpp:54   | No supported NVIDIA accelerator
+[2025-11-05 05:55:08.140] W [OvenMediaEngine:1] Transcoder | transcoder_gpu.cpp:64   | No supported Xilinx Media accelerator
+[2025-11-05 05:55:08.140] W [OvenMediaEngine:1] Transcoder | transcoder_gpu.cpp:74   | No supported Intel QuickSync accelerator
+[2025-11-05 05:55:08.140] W [OvenMediaEngine:1] Transcoder | transcoder_gpu.cpp:84   | No supported Netint VPU accelerator
+[2025-11-05 05:55:08.140] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:142  | Trying to create WebRTC Provider...
+[2025-11-05 05:55:08.141] I [OvenMediaEngine:1] Signalling.P2P | rtc_p2p_manager.cpp:27   | P2P is disabled in the configuration
+[2025-11-05 05:55:08.141] I [OvenMediaEngine:1] HTTP.Server | http_server_manager.cpp:319  | WebRTCProvider is listening on *:3333 (TLS: *:3334)...
+[2025-11-05 05:55:08.141] I [OvenMediaEngine:1] HTTP.Server | http_server_manager.cpp:319  | WebRTCProvider is listening on *:3333 (TLS: *:3334)...
+[2025-11-05 05:55:08.141] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10000
+[2025-11-05 05:55:08.141] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10001
+[2025-11-05 05:55:08.141] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10002
+[2025-11-05 05:55:08.141] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10003
+[2025-11-05 05:55:08.141] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:314  | ICE candidate found: 192.168.1.10:10004
+[2025-11-05 05:55:08.141] I [OvenMediaEngine:1] ICE | ice_port.cpp:113  | ICE ports are listening on *:10004/UDP (0x711036908690), *:10003/UDP (0x711036908990), *:10002/UDP (0x711036908c90), *:10001/UDP (0x711036908f90), *:10000/UDP (0x711036909290) (for WebRTCProvider)
+[2025-11-05 05:55:08.141] I [OvenMediaEngine:1] ICE | ice_port_manager.cpp:199  | TURN port is listening on *:3478/TCP (for WebRTCProvider)
+[2025-11-05 05:55:08.142] I [OvenMediaEngine:1] Provider | provider.cpp:37   | WebRTCProvider has been started.
+[2025-11-05 05:55:08.142] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:143  | Trying to create MPEG-TS Provider...
+[2025-11-05 05:55:08.143] W [OvenMediaEngine:1] MpegtsProvider | mpegts_provider.cpp:147  | MPEGTSProvider is disabled by configuration
+[2025-11-05 05:55:08.143] I [OvenMediaEngine:1] MpegtsProvider | mpegts_provider.cpp:39   | Terminated Mpegts Provider module.
+[2025-11-05 05:55:08.143] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:144  | Trying to create SRT Provider...
+[2025-11-05 05:55:08.143] I [OvenMediaEngine:1] SrtProvider | srt_provider.cpp:110  | SrtProvider is listening on *:9999/SRT
+[2025-11-05 05:55:08.143] I [OvenMediaEngine:1] Provider | provider.cpp:37   | SrtProvider has been started.
+[2025-11-05 05:55:08.143] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:145  | Trying to create RTMP Provider...
+[2025-11-05 05:55:08.144] I [OvenMediaEngine:1] RTMPProvider | rtmp_provider.cpp:151  | RTMPProvider is listening on *:1935
+[2025-11-05 05:55:08.144] I [OvenMediaEngine:1] Provider | provider.cpp:37   | RTMPProvider has been started.
+[2025-11-05 05:55:08.144] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:146  | Trying to create OVT Provider...
+[2025-11-05 05:55:08.144] I [OvenMediaEngine:1] Provider | provider.cpp:37   | OVTProvider has been started.
+[2025-11-05 05:55:08.144] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:147  | Trying to create RTSPC Provider...
+[2025-11-05 05:55:08.144] I [OvenMediaEngine:1] Provider | provider.cpp:37   | RTSPCProvider has been started.
+[2025-11-05 05:55:08.144] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:148  | Trying to create File Provider...
+[2025-11-05 05:55:08.144] I [OvenMediaEngine:1] Provider | provider.cpp:37   | FileProvider has been started.
+[2025-11-05 05:55:08.145] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:149  | Trying to create Scheduled Provider...
+[2025-11-05 05:55:08.145] I [OvenMediaEngine:1] Provider | provider.cpp:37   | ScheduledProvider has been started.
+[2025-11-05 05:55:08.145] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:150  | Trying to create Multiplex Provider...
+[2025-11-05 05:55:08.145] I [OvenMediaEngine:1] Provider | provider.cpp:37   | MultiplexProvider has been started.
+[2025-11-05 05:55:08.145] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:157  | All modules are initialized successfully
+[2025-11-05 05:55:08.145] I [OvenMediaEngine:1] Monitor | monitoring.cpp:94   | OvenMediaEngine(788eaae4-a301-431c-a58a-701ea6b5fbbf) ServerMetric has been started for monitoring - 2025-11-05T05:55:08.145+00:00
+[2025-11-05 05:55:08.147] I [OvenMediaEngine:1] Certificate | certificate.cpp:35   | A certificate has been loaded for VirtualHost [default]:
+	Cert file path: origin_conf/./cert.crt
+	Chain cert file path: origin_conf/./cert.ca-bundle
+	Private key file path: origin_conf/./cert.key
+[2025-11-05 05:55:08.149] I [OvenMediaEngine:1] Monitor | server_metrics.cpp:61   | Create HostMetrics(default/788eaae4-a301-431c-a58a-701ea6b5fbbf/#default#) for monitoring
+[2025-11-05 05:55:08.149] I [OvenMediaEngine:1] Orchestrator | orchestrator.cpp:1302 | Trying to create an application: [#default#app]
+[2025-11-05 05:55:08.149] I [OvenMediaEngine:1] Monitor | host_metrics.cpp:58   | Create ApplicationMetrics(#default#app/788eaae4-a301-431c-a58a-701ea6b5fbbf/#default#app) for monitoring
+[2025-11-05 05:55:08.149] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:52   | [#default#app(0)] Created Mediarouter application. Worker(1) DelayBufferTime(0)
+[2025-11-05 05:55:08.149] I [OvenMediaEngine:1] MediaRouter | mediarouter.cpp:83   | Created Mediarouter. app(#default#app)
+[2025-11-05 05:55:08.150] I [OvenMediaEngine:1] Publisher | application.cpp:226  | WebRTC Publisher Application has created [#default#app] application
+[2025-11-05 05:55:08.150] I [OvenMediaEngine:1] Publisher | application.cpp:226  | LLHLS Publisher Application has created [#default#app] application
+[2025-11-05 05:55:08.150] I [OvenMediaEngine:1] Publisher | application.cpp:226  | OVTPublisher Application has created [#default#app] application
+[2025-11-05 05:55:08.150] W [OvenMediaEngine:1] Publisher | publisher.cpp:68   | File publisher is disabled in #default#app application, so it was not created
+[2025-11-05 05:55:08.150] W [OvenMediaEngine:1] Publisher | publisher.cpp:68   | Push publisher is disabled in #default#app application, so it was not created
+[2025-11-05 05:55:08.150] I [OvenMediaEngine:1] Transcoder | transcoder_application.cpp:34   | Created transcoder application. [#default#app]
+[2025-11-05 05:55:08.150] I [OvenMediaEngine:1] Transcoder | transcoder.cpp:97   | Transcoder has created [config][#default#app] application
+[2025-11-05 05:55:08.150] I [OvenMediaEngine:1] Provider | application.cpp:46   | WebRTCProvider has created [#default#app] application
+[2025-11-05 05:55:08.150] I [OvenMediaEngine:1] Provider | application.cpp:46   | SrtProvider has created [#default#app] application
+[2025-11-05 05:55:08.151] I [OvenMediaEngine:1] Provider | application.cpp:46   | RTMPProvider has created [#default#app] application
+[2025-11-05 05:55:08.151] I [OvenMediaEngine:1] Provider | application.cpp:46   | OVTProvider has created [#default#app] application
+[2025-11-05 05:55:08.151] I [OvenMediaEngine:1] Provider | application.cpp:46   | RTSPCProvider has created [#default#app] application
+[2025-11-05 05:55:08.151] I [OvenMediaEngine:1] Provider | application.cpp:46   | ScheduledProvider has created [#default#app] application
+[2025-11-05 05:55:08.151] W [OvenMediaEngine:1] Provider | provider.cpp:91   | Multiplex provider is disabled in #default#app application, so it was not created
+[2025-11-05 05:55:08.151] I [OvenMediaEngine:1] APIServer | api_server.cpp:123  | API Server is disabled by configuration
+[2025-11-05 06:06:16.691] W [OvenMediaEngine:1] OvenMediaEngine | signals.cpp:343  | Caught terminate signal 15. OME is terminating...
+[2025-11-05 06:06:16.691] I [OvenMediaEngine:1] Monitor | server_metrics.cpp:80   | Delete HostMetrics(default/788eaae4-a301-431c-a58a-701ea6b5fbbf/#default#) for monitoring
+[2025-11-05 06:06:16.691] I [OvenMediaEngine:1] Orchestrator | orchestrator.cpp:277  | Trying to delete an application: [#default#app] (0)
+[2025-11-05 06:06:16.691] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:243  | Unregistered observer. app(#default#app) type(3)
+[2025-11-05 06:06:16.691] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:205  | Unregistered connector. app(#default#app) type(0)
+[2025-11-05 06:06:16.691] I [OvenMediaEngine:1] Provider | application.cpp:61   | ScheduledProvider has deleted [#default#app] application
+[2025-11-05 06:06:16.691] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:205  | Unregistered connector. app(#default#app) type(0)
+[2025-11-05 06:06:16.745] I [OvenMediaEngine:1] Provider | application.cpp:61   | RTSPCProvider has deleted [#default#app] application
+[2025-11-05 06:06:16.745] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:205  | Unregistered connector. app(#default#app) type(0)
+[2025-11-05 06:06:16.751] I [OvenMediaEngine:1] Provider | application.cpp:61   | OVTProvider has deleted [#default#app] application
+[2025-11-05 06:06:16.751] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:205  | Unregistered connector. app(#default#app) type(0)
+[2025-11-05 06:06:16.751] I [OvenMediaEngine:1] Provider | application.cpp:61   | RTMPProvider has deleted [#default#app] application
+[2025-11-05 06:06:16.751] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:205  | Unregistered connector. app(#default#app) type(0)
+[2025-11-05 06:06:16.751] I [OvenMediaEngine:1] Provider | application.cpp:61   | SrtProvider has deleted [#default#app] application
+[2025-11-05 06:06:16.751] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:205  | Unregistered connector. app(#default#app) type(0)
+[2025-11-05 06:06:16.751] I [OvenMediaEngine:1] Provider | application.cpp:61   | WebRTCProvider has deleted [#default#app] application
+[2025-11-05 06:06:16.751] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:243  | Unregistered observer. app(#default#app) type(1)
+[2025-11-05 06:06:16.751] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:205  | Unregistered connector. app(#default#app) type(1)
+[2025-11-05 06:06:16.751] I [OvenMediaEngine:1] Transcoder | transcoder.cpp:133  | Transcoder has deleted [config][#default#app] application
+[2025-11-05 06:06:16.751] I [OvenMediaEngine:1] Transcoder | transcoder_application.cpp:39   | Transcoder application has been destroyed. [#default#app]
+[2025-11-05 06:06:16.751] I [OvenMediaEngine:1] Publisher | application.cpp:245  | OVTPublisher Application has deleted [#default#app] application
+[2025-11-05 06:06:16.751] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:243  | Unregistered observer. app(#default#app) type(0)
+[2025-11-05 06:06:16.751] I [OvenMediaEngine:1] Publisher | application.cpp:245  | OVTPublisher Application has deleted [#default#app] application
+[2025-11-05 06:06:16.752] I [OvenMediaEngine:1] Publisher | application.cpp:245  | OVTPublisher Application has deleted [#default#app] application
+[2025-11-05 06:06:16.752] I [OvenMediaEngine:1] Publisher | application.cpp:245  | LLHLS Publisher Application has deleted [#default#app] application
+[2025-11-05 06:06:16.752] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:243  | Unregistered observer. app(#default#app) type(0)
+[2025-11-05 06:06:16.752] I [OvenMediaEngine:1] Publisher | application.cpp:245  | LLHLS Publisher Application has deleted [#default#app] application
+[2025-11-05 06:06:16.752] I [OvenMediaEngine:1] Publisher | application.cpp:245  | LLHLS Publisher Application has deleted [#default#app] application
+[2025-11-05 06:06:16.752] I [OvenMediaEngine:1] Publisher | application.cpp:245  | WebRTC Publisher Application has deleted [#default#app] application
+[2025-11-05 06:06:16.752] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:243  | Unregistered observer. app(#default#app) type(0)
+[2025-11-05 06:06:16.752] I [OvenMediaEngine:1] Publisher | application.cpp:245  | WebRTC Publisher Application has deleted [#default#app] application
+[2025-11-05 06:06:16.752] I [OvenMediaEngine:1] Publisher | application.cpp:245  | WebRTC Publisher Application has deleted [#default#app] application
+[2025-11-05 06:06:16.752] I [OvenMediaEngine:1] MediaRouter | mediarouter_application.cpp:73   | [#default#app(0)] Destroyed Mediarouter application. worker(1)
+[2025-11-05 06:06:16.752] I [OvenMediaEngine:1] MediaRouter | mediarouter.cpp:101  | Mediarouter has been destroyed. app(#default#app)
+[2025-11-05 06:06:16.752] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:179  | Trying to release WebRTC Provider...
+[2025-11-05 06:06:17.022] I [OvenMediaEngine:1] Provider | provider.cpp:61   | WebRTCProvider has been stopped.
+[2025-11-05 06:06:17.022] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:181  | Trying to release SRT Provider...
+[2025-11-05 06:06:17.122] I [OvenMediaEngine:1] Provider | provider.cpp:61   | SrtProvider has been stopped.
+[2025-11-05 06:06:17.122] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:182  | Trying to release RTMP Provider...
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] Provider | provider.cpp:61   | RTMPProvider has been stopped.
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:183  | Trying to release OVT Provider...
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] Provider | provider.cpp:61   | OVTProvider has been stopped.
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:184  | Trying to release RTSPC Provider...
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] Provider | provider.cpp:61   | RTSPCProvider has been stopped.
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:185  | Trying to release File Provider...
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] Provider | provider.cpp:61   | FileProvider has been stopped.
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:186  | Trying to release Scheduled Provider...
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] Provider | provider.cpp:61   | ScheduledProvider has been stopped.
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:187  | Trying to release Multiplex Provider...
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] Provider | provider.cpp:61   | MultiplexProvider has been stopped.
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:191  | Trying to release Transcoder...
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] Transcoder | transcoder_gpu.cpp:94   | Trying to release Transcoder GPU resources
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:193  | Trying to release WebRTC Publisher...
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] Publisher | publisher.cpp:42   | WebRTC Publisher has been stopped.
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:194  | Trying to release LLHLS Publisher...
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] Publisher | publisher.cpp:42   | LLHLS Publisher has been stopped.
+[2025-11-05 06:06:17.217] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:195  | Trying to release OVT Publisher...
+[2025-11-05 06:06:17.241] I [OvenMediaEngine:1] Publisher | publisher.cpp:42   | OVTPublisher has been stopped.
+[2025-11-05 06:06:17.241] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:196  | Trying to release File Publisher...
+[2025-11-05 06:06:17.241] I [OvenMediaEngine:1] Publisher | publisher.cpp:42   | FilePublisher has been stopped.
+[2025-11-05 06:06:17.242] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:197  | Trying to release Push Publisher...
+[2025-11-05 06:06:17.242] I [OvenMediaEngine:1] Publisher | publisher.cpp:42   | PushPublisher has been stopped.
+[2025-11-05 06:06:17.242] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:202  | Trying to release MediaRouter...
+[2025-11-05 06:06:17.242] I [OvenMediaEngine:1] MediaRouter | mediarouter.cpp:49   | Mediarouter has been stopped.
+[2025-11-05 06:06:17.244] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:359  | Uninitializing TCP socket pool...
+[2025-11-05 06:06:17.244] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:361  | Uninitializing UDP socket pool...
+[2025-11-05 06:06:17.342] I [OvenMediaEngine:1] OvenMediaEngine | main.cpp:364  | OvenMediaEngine will be terminated
+[2025-11-05 06:06:17.342] I [OvenMediaEngine:1] Provider | provider.cpp:61   | FileProvider has been stopped.
+[2025-11-05 06:06:17.342] I [OvenMediaEngine:1] Provider | provider.cpp:61   | RTSPCProvider has been stopped.
+[2025-11-05 06:06:17.342] I [OvenMediaEngine:1] Provider | provider.cpp:61   | OVTProvider has been stopped.
+[2025-11-05 06:06:17.342] I [OvenMediaEngine:1] RTMPProvider | rtmp_provider.cpp:72   | Terminated Rtmp Provider module.
+[2025-11-05 06:06:17.343] I [OvenMediaEngine:1] SrtProvider | srt_provider.cpp:40   | Terminated SRT Provider module.

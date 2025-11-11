@@ -1,6 +1,7 @@
 {
   "users": [
-    { "name": "mqtt", "password": "mqttpass", "tags": "administrator" }
+    { "name": "mqtt", "password": "mqttpass", "tags": "administrator" },
+    { "name": "api", "password": "apipass", "tags": "" }
   ],
   "vhosts": [{ "name": "/" }, { "name": "factory" }],
   "permissions": [
@@ -17,6 +18,13 @@
       "configure": ".*",
       "write": ".*",
       "read": ".*"
+    },
+    {
+      "user": "api",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
     }
   ],
   "global_parameters": [
@@ -25,6 +33,11 @@
       "value": { "1883": "/" }
     }
   ],
+  "policies": [],
+  "parameters": [],
+  "queues": [],
+  "exchanges": [],
+  "bindings": [],
   "traces": [
     {
       "name": "mqtt-trace",
