@@ -1,5 +1,5 @@
 services:
-  db:
+  postgres:
     image: postgres:15-alpine
     container_name: local_pgdb
     ports:
@@ -29,7 +29,7 @@ services:
     volumes:
       - pgadmin_data:/var/lib/pgadmin
     depends_on:
-      - db
+      - postgres
     networks:
       - local-network
 

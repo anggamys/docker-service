@@ -6,14 +6,16 @@ services:
       - "9090:9090"
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
-    restart: unless-stopped
+    networks:
+      - local-network
 
   node_exporter:
     image: prom/node-exporter
     container_name: node_exporter
     ports:
       - "9100:9100"
-    restart: unless-stopped
+    networks:
+      - local-network
 
   grafana:
     image: grafana/grafana
@@ -25,7 +27,12 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=admin
     volumes:
       - grafana_data:/var/lib/grafana
-    restart: unless-stopped
+    networks:
+      - local-network
 
 volumes:
   grafana_data:
+
+networks:
+  local-network:
+    external: true

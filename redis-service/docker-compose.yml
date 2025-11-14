@@ -2,7 +2,13 @@ services:
   redis:
     image: redis:7-alpine
     container_name: redis_service
-    command: redis-server --save "" --appendonly no
+    command: >
+      redis-server
+      --save ""
+      --appendonly no
+      --maxmemory 128mb
+      --maxmemory-policy allkeys-lru
+      --loglevel warning
     ports:
       - "6379:6379"
     volumes:
@@ -11,8 +17,7 @@ services:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s
       timeout: 3s
-      retries: 5
-    restart: unless-stopped
+      retries: 3
     networks:
       - local-network
 
