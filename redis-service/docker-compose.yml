@@ -7,7 +7,7 @@ services:
       --save ""
       --appendonly no
       --maxmemory 128mb
-      --maxmemory-policy allkeys-lru
+      --maxmemory-policy noeviction
       --loglevel warning
     ports:
       - "6379:6379"
