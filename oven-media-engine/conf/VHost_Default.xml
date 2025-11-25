@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<VirtualHost>
+  <Name>default</Name>
+  <Host>
+    <Names>
+      <Name>*</Name>
+    </Names>
+  </Host>
+  <Applications>
+    <Application>
+      <Name>app</Name>
+      <Type>live</Type>
+      <Providers>
+        <RTMP />
+        <SRT />
+      </Providers>
+      <Publishers>
+        <WebRTC />
+        <LLHLS />
+        <HLS />
+      </Publishers>
+    </Application>
+  </Applications>
+</VirtualHost>

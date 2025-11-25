@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
 <Server version="8">
 	<Name>OvenMediaEngine</Name>
 	<!-- Host type (origin/edge) -->
@@ -7,16 +6,16 @@
 	<!-- Specify IP address to bind (* means all IPs) -->
 	<IP>*</IP>
 	<PrivacyProtection>false</PrivacyProtection>
-	<!-- 
-	To get the public IP address(mapped address of stun) of the local server. 
-	This is useful when OME cannot obtain a public IP from an interface, such as AWS or docker environment. 
+	<!--
+	To get the public IP address(mapped address of stun) of the local server.
+	This is useful when OME cannot obtain a public IP from an interface, such as AWS or docker environment.
 	If this is successful, you can use ${PublicIP} in your settings.
 	-->
 	<StunServer>stun.ovenmediaengine.com:13478</StunServer>
 
 	<Modules>
-		<!-- 
-		Currently OME only supports h2 like all browsers do. Therefore, HTTP/2 only works on TLS ports.			
+		<!--
+		Currently OME only supports h2 like all browsers do. Therefore, HTTP/2 only works on TLS ports.
 		-->
 		<HTTP2>
 			<Enable>true</Enable>
@@ -37,14 +36,14 @@
 	<!-- Settings for the ports to bind -->
 	<Bind>
 		<!-- Enable this configuration if you want to use API Server -->
-		<!--
+
 		<Managers>
 			<API>
 				<Port>${env:OME_API_PORT:8081}</Port>
 				<WorkerCount>1</WorkerCount>
 			</API>
 		</Managers>
-		-->
+
 		<Providers>
 			<!-- Pull providers -->
 			<RTSPC>
@@ -77,7 +76,8 @@
 					<WorkerCount>1</WorkerCount>
 				</Signalling>
 				<IceCandidates>
-					<IceCandidate>${env:OME_HOST_IP:*}:${env:OME_WEBRTC_CANDIDATE_PORT:10000-10004/udp}</IceCandidate>
+					<IceCandidate
+                    >${env:OME_HOST_IP:*}:${env:OME_WEBRTC_CANDIDATE_PORT:10000-10004/udp}</IceCandidate>
 					<TcpRelay>${env:OME_HOST_IP:*}:${env:OME_WEBRTC_TCP_RELAY_PORT:3478}</TcpRelay>
 					<TcpForce>true</TcpForce>
 					<TcpRelayWorkerCount>1</TcpRelayWorkerCount>
@@ -92,8 +92,8 @@
 				<WorkerCount>1</WorkerCount>
 			</OVT>
 			<LLHLS>
-				<!-- 
-				OME only supports h2, so LLHLS works over HTTP/1.1 on non-TLS port. 
+				<!--
+				OME only supports h2, so LLHLS works over HTTP/1.1 on non-TLS port.
 				Note that LLHLS runs higher performance over HTTP/2.
 				Therefore, it is recommended to use TLS Port.
 				-->
@@ -108,7 +108,8 @@
 					<WorkerCount>1</WorkerCount>
 				</Signalling>
 				<IceCandidates>
-					<IceCandidate>${env:OME_HOST_IP:*}:${env:OME_WEBRTC_CANDIDATE_PORT:10000-10004/udp}</IceCandidate>
+					<IceCandidate
+                    >${env:OME_HOST_IP:*}:${env:OME_WEBRTC_CANDIDATE_PORT:10000-10004/udp}</IceCandidate>
 					<TcpRelay>${env:OME_HOST_IP:*}:${env:OME_WEBRTC_TCP_RELAY_PORT:3478}</TcpRelay>
 					<TcpForce>true</TcpForce>
 					<TcpRelayWorkerCount>1</TcpRelayWorkerCount>
@@ -127,7 +128,7 @@
 			<Name>default</Name>
 			<!--Distribution is a value that can be used when grouping the same vhost distributed across multiple servers. This value is output to the events log, so you can use it to aggregate statistics. -->
 			<Distribution>ovenmediaengine.com</Distribution>
-			
+
 			<!-- Settings for multi ip/domain and TLS -->
 			<Host>
 				<Names>
@@ -166,8 +167,8 @@
 					<Host>192.168.0.160:6379</Host>
 					<Auth>!@#ovenmediaengine</Auth>
 				</RedisServer>
-				
-				This is only needed for the origin server and used to register the ovt address of the stream. 
+
+				This is only needed for the origin server and used to register the ovt address of the stream.
 				<OriginHostName>${env:OME_HOST_IP:192.168.0.160}</OriginHostName>
 			</OriginMapStore>
 			-->
@@ -185,7 +186,7 @@
 					<Type>live</Type>
 					<OutputProfiles>
 						<!--  This option is deprecated. Please use the 'HWAccels' option. -->
-						<!-- 
+						<!--
 							<HardwareAcceleration>false</HardwareAcceleration>
 						-->
 
@@ -193,7 +194,7 @@
 						<HWAccels>
 							<Decoder>
 									<Enable>false</Enable>
-									<!-- 
+									<!--
 										Setting for Hardware Modules.
 										 - xma :Xilinx Media Accelerator
 										 - qsv :Intel Quick Sync Video
@@ -269,7 +270,7 @@
 									<BypassIfMatch>
 										<Codec>eq</Codec>
 									</BypassIfMatch>
-								</Audio>								
+								</Audio>
 								<Audio>
 									<Name>opus_audio</Name>
 									<Codec>opus</Codec>
@@ -278,9 +279,9 @@
 									<Channel>2</Channel>
 									<BypassIfMatch>
 										<Codec>eq</Codec>
-									</BypassIfMatch>									
+									</BypassIfMatch>
 								</Audio>
-								<!-- 							
+								<!--
 								<Video>
 									<Name>video_1280</Name>
 									<Codec>h264</Codec>
