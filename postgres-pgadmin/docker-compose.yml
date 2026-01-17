@@ -1,16 +1,18 @@
 services:
   postgres:
-    image: postgres:15-alpine
+    image: postgres:15.6
     container_name: local_pgdb
-    ports:
-      - "5432:5432"
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      TZ: Asia/Jakarta
+    ports:
+      - "5432:5432"
     volumes:
-      - local_pgdata:/var/lib/postgresql/data
+      - ./data/postgres:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U dev"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
       interval: 5s
       timeout: 3s
       retries: 5
@@ -20,22 +22,20 @@ services:
   pgadmin:
     image: dpage/pgadmin4:9.0
     container_name: pgadmin4_container
-    ports:
-      - "8888:80"
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
-      PGADMIN_LISTEN_PORT: 80
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+      TZ: Asia/Jakarta
+    ports:
+      - "8888:80"
     volumes:
-      - pgadmin_data:/var/lib/pgadmin
+      - ./data/pgadmin:/var/lib/pgadmin
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     networks:
       - local-network
-
-volumes:
-  local_pgdata:
-  pgadmin_data:
 
 networks:
   local-network:

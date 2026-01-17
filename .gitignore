@@ -1,3 +1,6 @@
+# Data
+data/
+
 # Environment Variables
 .env
 .env.local
