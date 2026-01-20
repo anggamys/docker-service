@@ -1,7 +1,7 @@
 services:
   mysql:
     image: mysql:8.0.36
-    container_name: mysql_service
+    container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -32,7 +32,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:5.2.1
-    container_name: phpmyadmin_service
+    container_name: phpmyadmin
     environment:
       PMA_HOST: mysql
       TZ: ${TZ}
