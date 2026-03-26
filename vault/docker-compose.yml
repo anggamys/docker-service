@@ -1,0 +1,27 @@
+services:
+  vault:
+    image: hashicorp/vault:latest
+    container_name: vault
+    restart: unless-stopped
+
+    ports:
+      - "8200:8200"
+      - "8201:8201"
+
+    environment:
+      VAULT_API_ADDR: "https://vault.local:8200"
+      VAULT_CACERT: "/vault/userconfig/tls/ca.crt"
+
+    cap_add:
+      - IPC_LOCK
+
+    volumes:
+      - ./audit:/vault/audit
+      - ./config:/vault/config
+      - ./data:/vault/data
+      - ./file:/vault/file
+      - ./logs:/vault/logs
+      - ./userconfig:/vault/userconfig
+      - ./plugins:/vault/plugins
+
+    command: vault server -config=/vault/config/vault-config.hcl

@@ -1,0 +1,6 @@
+# Ignore all files in this directory
+*
+
+# Keep specific files
+!docker-compose.yml
+!.gitignore
