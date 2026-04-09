@@ -1,0 +1,88 @@
+services:
+  owncloud:
+    image: owncloud/server:10.13
+    container_name: owncloud_server
+    restart: unless-stopped
+    ports:
+      - "${HTTP_PORT}:8080"
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      OWNCLOUD_DOMAIN: ${OWNCLOUD_DOMAIN}
+      OWNCLOUD_TRUSTED_DOMAINS: ${OWNCLOUD_TRUSTED_DOMAINS}
+
+      OWNCLOUD_DB_TYPE: mysql
+      OWNCLOUD_DB_NAME: owncloud
+      OWNCLOUD_DB_USERNAME: owncloud
+      OWNCLOUD_DB_PASSWORD: owncloud
+      OWNCLOUD_DB_HOST: mariadb
+
+      OWNCLOUD_ADMIN_USERNAME: ${ADMIN_USERNAME}
+      OWNCLOUD_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+
+      OWNCLOUD_MYSQL_UTF8MB4: "true"
+
+      OWNCLOUD_REDIS_ENABLED: "true"
+      OWNCLOUD_REDIS_HOST: redis
+
+      TZ: Asia/Jakarta
+    volumes:
+      - ./data/files:/mnt/data
+    healthcheck:
+      test: ["CMD", "/usr/bin/healthcheck"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - local-network
+
+  mariadb:
+    image: mariadb:10.11
+    container_name: owncloud_mariadb
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: owncloud
+      MYSQL_PASSWORD: owncloud
+      MYSQL_DATABASE: owncloud
+      MARIADB_AUTO_UPGRADE: "1"
+      TZ: Asia/Jakarta
+    command:
+      - --max-allowed-packet=128M
+      - --innodb-log-file-size=64M
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-u", "root", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - local-network
+
+  redis:
+    image: redis:7
+    container_name: owncloud_redis
+    restart: unless-stopped
+    command: >
+      redis-server
+      --save 60 1
+      --appendonly yes
+      --maxmemory 128mb
+      --maxmemory-policy allkeys-lru
+    volumes:
+      - ./data/redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - local-network
+
+networks:
+  local-network:
+    external: true
