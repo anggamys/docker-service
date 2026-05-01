@@ -1,0 +1,10 @@
+groups:
+  - name: basic-alerts
+    rules:
+      - alert: HighCPUUsage
+        expr: rate(node_cpu_seconds_total[1m]) > 0.8
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "CPU usage tinggi"
