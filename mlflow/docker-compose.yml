@@ -1,0 +1,38 @@
+services:
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v3.11.1-full
+    container_name: mlflow_server
+    ports:
+      - '5000:5000'
+    environment:
+      MLFLOW_TRACKING_URI: http://localhost:5000
+    command: >
+      mlflow server
+      --backend-store-uri postgresql://mlflow:mlflow@postgres:5432/mlflow
+      --default-artifact-root mlflow-artifacts:/
+      --artifacts-destination /mlflow/artifacts
+      --host 0.0.0.0
+      --port 5000
+      --serve-artifacts
+    volumes:
+      - ./data/mlflow:/mlflow
+    depends_on:
+      - postgres
+    networks:
+      - local-network
+
+  postgres:
+    image: postgres:15
+    container_name: mlflow_postgres
+    environment:
+      POSTGRES_USER: mlflow
+      POSTGRES_PASSWORD: mlflow
+      POSTGRES_DB: mlflow
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    networks:
+      - local-network
+
+networks:
+  local-network:
+    external: true
