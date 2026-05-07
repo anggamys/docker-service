@@ -2,42 +2,56 @@ services:
   mysql:
     image: mysql:8.0.36
     container_name: mysql
+    # restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       TZ: ${TZ}
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
     ports:
-      - '3306:3306'
-    command: ['--default-authentication-plugin=mysql_native_password', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+      - "3306:3306" # hapus kalau tidak butuh akses dari host
     volumes:
       - ./data/mysql:/var/lib/mysql
     healthcheck:
-      test: ['CMD-SHELL', 'mysqladmin ping -h 127.0.0.1 -u root -p${MYSQL_ROOT_PASSWORD}']
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p${MYSQL_ROOT_PASSWORD}"]
       interval: 10s
       timeout: 5s
       retries: 5
+    mem_limit: 512m
     networks:
       - local-network
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:5.2.1
     container_name: phpmyadmin
+    # restart: unless-stopped
     environment:
       PMA_HOST: mysql
       TZ: ${TZ}
     ports:
-      - '8080:80'
+      - "8080:80"
     depends_on:
       mysql:
         condition: service_healthy
-    healthcheck:
-      test: ['CMD-SHELL', 'php -r "exit(@fsockopen(''127.0.0.1'', 80) ? 0 : 1);"']
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 15s
+    mem_limit: 128m
+    networks:
+      - local-network
+
+  mysqld-exporter:
+    image: prom/mysqld-exporter:v0.12.1
+    container_name: mysqld_exporter
+    # restart: unless-stopped
+    environment:
+      DATA_SOURCE_NAME: exporter:exporterpass@(mysql:3306)/
+    depends_on:
+      mysql:
+        condition: service_healthy
+    mem_limit: 64m
     networks:
       - local-network
 

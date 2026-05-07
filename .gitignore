@@ -1,5 +1,6 @@
 # Data
 data/
 
-# Environment Variables
+# File sensitive
 .env
+.my.cnf

@@ -2,44 +2,55 @@ services:
   postgres:
     image: postgres:15.6
     container_name: postgres
+    # restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
       TZ: Asia/Jakarta
     ports:
-      - '5432:5432'
+      - "5432:5432" # hapus kalau tidak perlu akses dari host
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER}']
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
       interval: 5s
       timeout: 3s
       retries: 5
+    mem_limit: 512m
     networks:
       - local-network
 
   pgadmin:
     image: dpage/pgadmin4:9.0
     container_name: pgadmin
+    # restart: unless-stopped
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_CONFIG_SERVER_MODE: "False"
       TZ: Asia/Jakarta
     ports:
-      - '8888:80'
+      - "8888:80"
     volumes:
       - ./data/pgadmin:/var/lib/pgadmin
     depends_on:
       postgres:
         condition: service_healthy
-    healthcheck:
-      test: ['CMD-SHELL', 'python3 -c "import socket,sys; s=socket.socket(); s.settimeout(2); sys.exit(0 if s.connect_ex((''127.0.0.1'', 80)) == 0 else 1)"']
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 15s
+    mem_limit: 128m
+    networks:
+      - local-network
+
+  postgres-exporter:
+    image: prometheuscommunity/postgres-exporter:v0.15.0
+    container_name: postgres_exporter
+    # restart: unless-stopped
+    environment:
+      DATA_SOURCE_NAME: postgresql://exporter:exporterpass@postgres:5432/postgres?sslmode=disable
+    depends_on:
+      postgres:
+        condition: service_healthy
+    mem_limit: 64m
     networks:
       - local-network
 
