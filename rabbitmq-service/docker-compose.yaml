@@ -3,14 +3,14 @@ services:
     image: rabbitmq:3-management-alpine
     container_name: rabbitmq
     ports:
-      - "5672:5672" # AMQP
-      - "15672:15672" # Management UI
-      - "1883:1883" # MQTT
-      - "15675:15675" # Web MQTT
+      - "${RABBITMQ_AMQP_BIND_ADDRESS:-127.0.0.1}:5672:5672"
+      - "${RABBITMQ_MANAGEMENT_BIND_ADDRESS:-127.0.0.1}:15672:15672"
+      - "${RABBITMQ_MQTT_BIND_ADDRESS:-127.0.0.1}:1883:1883"
+      - "${RABBITMQ_WEB_MQTT_BIND_ADDRESS:-127.0.0.1}:15675:15675"
     environment:
-      RABBITMQ_DEFAULT_USER: dev
-      RABBITMQ_DEFAULT_PASS: dev123
-      RABBITMQ_ERLANG_COOKIE: "secret_cookie"
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER:?set RABBITMQ_DEFAULT_USER in .env}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS:?set RABBITMQ_DEFAULT_PASS in .env}
+      RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE:?set RABBITMQ_ERLANG_COOKIE in .env}
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
       - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
@@ -27,6 +27,8 @@ services:
       retries: 5
     networks:
       - local-network
+    security_opt:
+      - no-new-privileges:true
 
 volumes:
   rabbitmq_data:

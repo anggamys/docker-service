@@ -4,7 +4,7 @@ services:
     container_name: prometheus
     # restart: unless-stopped
     ports:
-      - '9090:9090'
+      - '${PROMETHEUS_BIND_ADDRESS:-127.0.0.1}:9090:9090'
     volumes:
       - ./config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - ./config/alert.rules.yml:/etc/prometheus/alert.rules.yml:ro
@@ -21,13 +21,15 @@ services:
         max-file: '3'
     networks:
       - local-network
+    security_opt:
+      - no-new-privileges:true
 
   alertmanager:
     image: prom/alertmanager:v0.27.0
     container_name: alertmanager
     # restart: unless-stopped
     ports:
-      - '9093:9093'
+      - '${ALERTMANAGER_BIND_ADDRESS:-127.0.0.1}:9093:9093'
     volumes:
       - ./config/alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
       - ./data/alertmanager:/alertmanager
@@ -35,13 +37,15 @@ services:
       - '--config.file=/etc/alertmanager/alertmanager.yml'
     networks:
       - local-network
+    security_opt:
+      - no-new-privileges:true
 
   node_exporter:
     image: prom/node-exporter:v1.8.1
     container_name: node_exporter
     # restart: unless-stopped
     ports:
-      - '9100:9100'
+      - '${NODE_EXPORTER_BIND_ADDRESS:-127.0.0.1}:9100:9100'
     pid: 'host'
     command:
       - '--path.rootfs=/host'
@@ -49,13 +53,15 @@ services:
       - /:/host:ro,rslave
     networks:
       - local-network
+    security_opt:
+      - no-new-privileges:true
 
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.49.1
     container_name: cadvisor
     # restart: unless-stopped
     ports:
-      - '8081:8080'
+      - '${CADVISOR_BIND_ADDRESS:-127.0.0.1}:8081:8080'
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:ro
@@ -63,13 +69,15 @@ services:
       - /var/lib/docker/:/var/lib/docker:ro
     networks:
       - local-network
+    security_opt:
+      - no-new-privileges:true
 
   grafana:
     image: grafana/grafana:10.4.3
     container_name: grafana
     # restart: unless-stopped
     ports:
-      - '3000:3000'
+      - '${GRAFANA_BIND_ADDRESS:-127.0.0.1}:3000:3000'
     environment:
       GF_SECURITY_ADMIN_USER: ${GF_SECURITY_ADMIN_USER}
       GF_SECURITY_ADMIN_PASSWORD: ${GF_SECURITY_ADMIN_PASSWORD}
@@ -79,6 +87,8 @@ services:
       - ./grafana/provisioning:/etc/grafana/provisioning
     networks:
       - local-network
+    security_opt:
+      - no-new-privileges:true
 
 networks:
   local-network:

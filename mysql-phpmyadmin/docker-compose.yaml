@@ -4,27 +4,29 @@ services:
     container_name: mysql
     # restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?set MYSQL_ROOT_PASSWORD in .env}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      TZ: ${TZ}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?set MYSQL_PASSWORD in .env}
+      TZ: ${TZ:-Asia/Jakarta}
     command:
-      - --default-authentication-plugin=mysql_native_password
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
     ports:
-      - "3306:3306" # hapus kalau tidak butuh akses dari host
+      - "${MYSQL_BIND_ADDRESS:-127.0.0.1}:3306:3306"
     volumes:
       - ./data/mysql:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d:ro
     healthcheck:
-      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p${MYSQL_ROOT_PASSWORD}"]
+      test: ["CMD-SHELL", "MYSQL_PWD=$$MYSQL_ROOT_PASSWORD mysqladmin ping -h 127.0.0.1 -u root"]
       interval: 10s
       timeout: 5s
       retries: 5
     mem_limit: 512m
     networks:
       - local-network
+    security_opt:
+      - no-new-privileges:true
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:5.2.1
@@ -32,28 +34,32 @@ services:
     # restart: unless-stopped
     environment:
       PMA_HOST: mysql
-      TZ: ${TZ}
+      TZ: ${TZ:-Asia/Jakarta}
     ports:
-      - "8080:80"
+      - "${PHPMYADMIN_BIND_ADDRESS:-127.0.0.1}:8080:80"
     depends_on:
       mysql:
         condition: service_healthy
     mem_limit: 128m
     networks:
       - local-network
+    security_opt:
+      - no-new-privileges:true
 
   mysqld-exporter:
     image: prom/mysqld-exporter:v0.12.1
     container_name: mysqld_exporter
     # restart: unless-stopped
     environment:
-      DATA_SOURCE_NAME: exporter:exporterpass@(mysql:3306)/
+      DATA_SOURCE_NAME: ${MYSQL_EXPORTER_USER:?set MYSQL_EXPORTER_USER in .env}:${MYSQL_EXPORTER_PASS:?set MYSQL_EXPORTER_PASS in .env}@(mysql:3306)/
     depends_on:
       mysql:
         condition: service_healthy
     mem_limit: 64m
     networks:
       - local-network
+    security_opt:
+      - no-new-privileges:true
 
 networks:
   local-network:
