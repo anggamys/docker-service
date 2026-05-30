@@ -4,3 +4,4 @@
 # Keep specific files
 !docker-compose.yml
 !.gitignore
+!.env.example

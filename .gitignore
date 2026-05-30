@@ -4,3 +4,6 @@ data/
 # File sensitive
 .env
 .my.cnf
+**/.env
+**/.env.local
+**/.env.*.local

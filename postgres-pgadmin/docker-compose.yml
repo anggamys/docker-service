@@ -5,13 +5,14 @@ services:
     # restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
       POSTGRES_DB: ${POSTGRES_DB}
-      TZ: Asia/Jakarta
+      TZ: ${TZ:-Asia/Jakarta}
     ports:
-      - "5432:5432" # hapus kalau tidak perlu akses dari host
+      - "${POSTGRES_BIND_ADDRESS:-127.0.0.1}:5432:5432"
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
       interval: 5s
@@ -20,6 +21,8 @@ services:
     mem_limit: 512m
     networks:
       - local-network
+    security_opt:
+      - no-new-privileges:true
 
   pgadmin:
     image: dpage/pgadmin4:9.0
@@ -27,11 +30,11 @@ services:
     # restart: unless-stopped
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:?set PGADMIN_DEFAULT_PASSWORD in .env}
       PGADMIN_CONFIG_SERVER_MODE: "False"
-      TZ: Asia/Jakarta
+      TZ: ${TZ:-Asia/Jakarta}
     ports:
-      - "8888:80"
+      - "${PGADMIN_BIND_ADDRESS:-127.0.0.1}:8888:80"
     volumes:
       - ./data/pgadmin:/var/lib/pgadmin
     depends_on:
@@ -40,19 +43,23 @@ services:
     mem_limit: 128m
     networks:
       - local-network
+    security_opt:
+      - no-new-privileges:true
 
   postgres-exporter:
     image: prometheuscommunity/postgres-exporter:v0.15.0
     container_name: postgres_exporter
     # restart: unless-stopped
     environment:
-      DATA_SOURCE_NAME: postgresql://exporter:exporterpass@postgres:5432/postgres?sslmode=disable
+      DATA_SOURCE_NAME: postgresql://${POSTGRES_EXPORTER_USER:?set POSTGRES_EXPORTER_USER in .env}:${POSTGRES_EXPORTER_PASS:?set POSTGRES_EXPORTER_PASS in .env}@postgres:5432/${POSTGRES_EXPORTER_DB:-postgres}?sslmode=disable
     depends_on:
       postgres:
         condition: service_healthy
     mem_limit: 64m
     networks:
       - local-network
+    security_opt:
+      - no-new-privileges:true
 
 networks:
   local-network:
