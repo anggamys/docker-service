@@ -8,6 +8,8 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:?set MYSQL_PASSWORD in .env}
+      MYSQL_EXPORTER_USER: ${MYSQL_EXPORTER_USER:?set MYSQL_EXPORTER_USER in .env}
+      MYSQL_EXPORTER_PASS: ${MYSQL_EXPORTER_PASS:?set MYSQL_EXPORTER_PASS in .env}
       TZ: ${TZ:-Asia/Jakarta}
     command:
       - --character-set-server=utf8mb4

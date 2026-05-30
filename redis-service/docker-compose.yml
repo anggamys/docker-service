@@ -43,6 +43,20 @@ services:
     security_opt:
       - no-new-privileges:true
 
+  redis-exporter:
+    image: oliver006/redis_exporter:v1.67.0
+    container_name: redis_exporter
+    environment:
+      REDIS_ADDR: redis://redis:6379
+      REDIS_PASSWORD: ${REDIS_PASSWORD:?set REDIS_PASSWORD in .env}
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - local-network
+    security_opt:
+      - no-new-privileges:true
+
 networks:
   local-network:
     external: true

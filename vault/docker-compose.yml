@@ -27,3 +27,9 @@ services:
     command: vault server -config=/vault/config/vault-config.hcl
     security_opt:
       - no-new-privileges:true
+    networks:
+      - local-network
+
+networks:
+  local-network:
+    external: true
