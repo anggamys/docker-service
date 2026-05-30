@@ -17,7 +17,7 @@ services:
       - ./definitions.json:/etc/rabbitmq/definitions.json:ro
     command: >
       sh -c "
-      rabbitmq-plugins enable rabbitmq_management rabbitmq_mqtt rabbitmq_web_mqtt &&
+      rabbitmq-plugins enable rabbitmq_management rabbitmq_mqtt rabbitmq_web_mqtt rabbitmq_prometheus &&
       rabbitmq-server
       "
     healthcheck:

@@ -25,6 +25,38 @@ scrape_configs:
     static_configs:
       - targets: ["mysqld_exporter:9104"]
 
-  - job_name: "postgres"
+  - job_name: "postgres-pgadmin"
     static_configs:
       - targets: ["postgres_exporter:9187"]
+
+  - job_name: "mlflow-postgres"
+    static_configs:
+      - targets: ["mlflow_postgres_exporter:9187"]
+
+  - job_name: "redis"
+    static_configs:
+      - targets: ["redis_exporter:9121"]
+
+  - job_name: "rabbitmq"
+    static_configs:
+      - targets: ["rabbitmq:15692"]
+
+  - job_name: "minio"
+    metrics_path: /minio/v2/metrics/cluster
+    static_configs:
+      - targets: ["minio:9000"]
+
+  - job_name: "mlflow-minio"
+    metrics_path: /minio/v2/metrics/cluster
+    static_configs:
+      - targets: ["mlflow-minio:9000"]
+
+  - job_name: "vault"
+    scheme: https
+    metrics_path: /v1/sys/metrics
+    params:
+      format: ["prometheus"]
+    tls_config:
+      insecure_skip_verify: true
+    static_configs:
+      - targets: ["vault:8200"]

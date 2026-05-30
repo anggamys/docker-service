@@ -7,11 +7,14 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_EXPORTER_USER: ${POSTGRES_EXPORTER_USER:?set POSTGRES_EXPORTER_USER in .env}
+      POSTGRES_EXPORTER_PASS: ${POSTGRES_EXPORTER_PASS:?set POSTGRES_EXPORTER_PASS in .env}
       TZ: Asia/Jakarta
     ports:
       - "${POSTGRES_BIND_ADDRESS:-127.0.0.1}:5432:5432"
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
       interval: 5s
@@ -31,6 +34,7 @@ services:
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+      MINIO_PROMETHEUS_AUTH_TYPE: ${MINIO_PROMETHEUS_AUTH_TYPE:-public}
       TZ: Asia/Jakarta
     ports:
       - "${MINIO_BIND_ADDRESS:-127.0.0.1}:9000:9000"
@@ -43,6 +47,22 @@ services:
       timeout: 5s
       retries: 5
     mem_limit: 256m
+    networks:
+      local-network:
+        aliases:
+          - mlflow-minio
+    security_opt:
+      - no-new-privileges:true
+
+  postgres-exporter:
+    image: prometheuscommunity/postgres-exporter:v0.15.0
+    container_name: mlflow_postgres_exporter
+    environment:
+      DATA_SOURCE_NAME: postgresql://${POSTGRES_EXPORTER_USER:?set POSTGRES_EXPORTER_USER in .env}:${POSTGRES_EXPORTER_PASS:?set POSTGRES_EXPORTER_PASS in .env}@postgres:5432/${POSTGRES_EXPORTER_DB:-postgres}?sslmode=disable
+    depends_on:
+      postgres:
+        condition: service_healthy
+    mem_limit: 64m
     networks:
       - local-network
     security_opt:
