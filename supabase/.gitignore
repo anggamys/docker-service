@@ -1,0 +1,27 @@
+# Local secrets and generated env snapshots
+.env
+.env.*
+!.env.example
+
+# Local backup/legacy files
+*.old
+*.backup
+*.bak
+
+# Runtime database and storage data
+volumes/db/data/
+volumes/storage/
+
+# Runtime logs and temp output, keep Vector config tracked
+volumes/logs/*
+!volumes/logs/vector.yml
+logs/
+tmp/
+
+# Local dumps/backups
+backups/
+dumps/
+*.dump
+*.sql.gz
+*.tar
+*.tar.gz
