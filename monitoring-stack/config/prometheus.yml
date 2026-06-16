@@ -9,6 +9,18 @@ scrape_configs:
     static_configs:
       - targets: ["prometheus:9090"]
 
+  - job_name: "supabase"
+    scrape_interval: 60s
+    metrics_path: /customer/v1/privileged/metrics
+    scheme: https
+    basic_auth:
+      username: username
+      password_file: /run/secrets/supabase_metrics_api_key
+    file_sd_configs:
+      - files:
+          - /etc/prometheus/supabase-targets.yml
+        refresh_interval: 60s
+
   - job_name: "node"
     static_configs:
       - targets: ["node_exporter:9100"]

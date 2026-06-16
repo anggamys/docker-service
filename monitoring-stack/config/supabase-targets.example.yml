@@ -1,0 +1,7 @@
+- targets:
+    - "<project-ref>.supabase.co:443"
+  labels:
+    project: "<project-ref>"
+    project_ref: "<project-ref>"
+    supabase_project_ref: "<project-ref>"
+    supabase_identifier: "<project-ref>"

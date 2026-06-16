@@ -1,0 +1,5 @@
+# Local Supabase Metrics API scrape target.
+config/supabase-targets.yml
+
+# Local secret files mounted into Prometheus.
+secrets/
