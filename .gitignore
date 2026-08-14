@@ -7,3 +7,7 @@ data/
 **/.env
 **/.env.local
 **/.env.*.local
+
+# Environment-specific configs (dev & prod)
+**/.env.dev
+**/.env.prod
