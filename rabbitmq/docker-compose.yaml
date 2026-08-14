@@ -2,6 +2,7 @@ services:
   rabbitmq:
     image: rabbitmq:3-management-alpine
     container_name: rabbitmq
+    restart: ${RESTART_POLICY:-no}
     ports:
       - "${RABBITMQ_AMQP_BIND_ADDRESS:-127.0.0.1}:5672:5672"
       - "${RABBITMQ_MANAGEMENT_BIND_ADDRESS:-127.0.0.1}:15672:15672"
@@ -25,6 +26,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    # dev: 256m | prod: 512m+
+    mem_limit: ${RABBITMQ_MEM_LIMIT:-256m}
     networks:
       - local-network
     security_opt:

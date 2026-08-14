@@ -2,6 +2,7 @@ services:
   minio:
     image: quay.io/minio/aistor/minio:RELEASE.2025-12-20T04-58-37Z
     container_name: minio_service
+    restart: ${RESTART_POLICY:-no}
     command: >
       minio server /mnt/data
       --console-address ":9001"

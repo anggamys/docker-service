@@ -2,7 +2,7 @@ services:
   vault:
     image: hashicorp/vault:${VAULT_VERSION:-1.18}
     container_name: vault
-    restart: unless-stopped
+    restart: ${RESTART_POLICY:-no}
 
     ports:
       - "${VAULT_BIND_ADDRESS:-127.0.0.1}:8200:8200"
@@ -25,6 +25,14 @@ services:
       - ./plugins:/vault/plugins
 
     command: vault server -config=/vault/config/vault-config.hcl
+
+    healthcheck:
+      test: ["CMD", "vault", "status", "-tls-skip-verify"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
     security_opt:
       - no-new-privileges:true
     networks:
