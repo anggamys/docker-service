@@ -2,7 +2,7 @@ services:
   mysql:
     image: mysql:8.0.36
     container_name: mysql
-    # restart: unless-stopped
+    restart: ${RESTART_POLICY:-no}
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?set MYSQL_ROOT_PASSWORD in .env}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -33,7 +33,7 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:5.2.1
     container_name: phpmyadmin
-    # restart: unless-stopped
+    restart: ${RESTART_POLICY:-no}
     environment:
       PMA_HOST: mysql
       TZ: ${TZ:-Asia/Jakarta}
@@ -51,7 +51,7 @@ services:
   mysqld-exporter:
     image: prom/mysqld-exporter:v0.12.1
     container_name: mysqld_exporter
-    # restart: unless-stopped
+    restart: ${RESTART_POLICY:-no}
     environment:
       DATA_SOURCE_NAME: ${MYSQL_EXPORTER_USER:?set MYSQL_EXPORTER_USER in .env}:${MYSQL_EXPORTER_PASS:?set MYSQL_EXPORTER_PASS in .env}@(mysql:3306)/
     depends_on:

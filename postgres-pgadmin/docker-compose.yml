@@ -2,7 +2,7 @@ services:
   postgres:
     image: postgres:15.6
     container_name: postgres
-    # restart: unless-stopped
+    restart: ${RESTART_POLICY:-no}
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
@@ -29,7 +29,7 @@ services:
   pgadmin:
     image: dpage/pgadmin4:9.0
     container_name: pgadmin
-    # restart: unless-stopped
+    restart: ${RESTART_POLICY:-no}
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:?set PGADMIN_DEFAULT_PASSWORD in .env}
@@ -51,7 +51,7 @@ services:
   postgres-exporter:
     image: prometheuscommunity/postgres-exporter:v0.15.0
     container_name: postgres_exporter
-    # restart: unless-stopped
+    restart: ${RESTART_POLICY:-no}
     environment:
       DATA_SOURCE_NAME: postgresql://${POSTGRES_EXPORTER_USER:?set POSTGRES_EXPORTER_USER in .env}:${POSTGRES_EXPORTER_PASS:?set POSTGRES_EXPORTER_PASS in .env}@postgres:5432/${POSTGRES_EXPORTER_DB:-postgres}?sslmode=disable
     depends_on:
