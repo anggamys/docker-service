@@ -9,6 +9,7 @@ A collection of self-hosted Docker Compose services.
 | `minio/` | MinIO — S3-compatible object storage |
 | `mlflow/` | MLflow — ML experiment tracking + MinIO + PostgreSQL |
 | `monitoring-stack/` | Prometheus, Grafana, Loki, Alertmanager, cAdvisor |
+| `kafka/` | Apache Kafka 4.0 (KRaft, no ZooKeeper) |
 | `mysql-phpmyadmin/` | MySQL + phpMyAdmin |
 | `postgres-pgadmin/` | PostgreSQL + pgAdmin |
 | `redis/` | Redis + RedisInsight |
