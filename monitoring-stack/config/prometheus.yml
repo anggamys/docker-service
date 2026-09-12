@@ -49,9 +49,9 @@ scrape_configs:
     static_configs:
       - targets: ["redis_exporter:9121"]
 
-  - job_name: "rabbitmq"
+  - job_name: "kafka"
     static_configs:
-      - targets: ["rabbitmq:15692"]
+      - targets: ["kafka_exporter:9308"]
 
   - job_name: "minio"
     metrics_path: /minio/v2/metrics/cluster
@@ -63,12 +63,4 @@ scrape_configs:
     static_configs:
       - targets: ["mlflow-minio:9000"]
 
-  - job_name: "vault"
-    scheme: https
-    metrics_path: /v1/sys/metrics
-    params:
-      format: ["prometheus"]
-    tls_config:
-      insecure_skip_verify: true
-    static_configs:
-      - targets: ["vault:8200"]
+
