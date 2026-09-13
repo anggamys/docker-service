@@ -6,6 +6,7 @@ A collection of self-hosted Docker Compose services.
 
 | Folder | Service |
 |---|---|
+| `authelia/` | Authelia SSO + Traefik reverse proxy |
 | `minio/` | MinIO — S3-compatible object storage |
 | `mlflow/` | MLflow — ML experiment tracking + MinIO + PostgreSQL |
 | `monitoring-stack/` | Prometheus, Grafana, Loki, Alertmanager, cAdvisor |
