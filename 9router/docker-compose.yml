@@ -8,7 +8,7 @@ services:
       - "127.0.0.1:20128:20128"
 
     volumes:
-      - 9router-data:/app/data
+      - ${NINE_ROUTER_DATA_DIR:-~/.9router}:/app/data
 
     env_file:
       - .env
@@ -21,7 +21,8 @@ services:
       HEADROOM_URL: http://headroom:8787
 
     depends_on:
-      - headroom
+      headroom:
+        condition: service_started
 
     networks:
       - local-network
@@ -39,10 +40,6 @@ services:
 
     security_opt:
       - no-new-privileges:true
-
-volumes:
-  9router-data:
-    name: 9router-data
 
 networks:
   local-network:
