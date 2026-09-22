@@ -1,0 +1,29 @@
+services:
+  optuna-dashboard:
+    image: ghcr.io/optuna/optuna-dashboard:latest
+    container_name: optuna-dashboard
+    restart: unless-stopped
+
+    environment:
+      TZ: ${TZ}
+
+    ports:
+      - "127.0.0.1:8080:8080"
+
+    volumes:
+      - ./data:/app
+
+    working_dir: /app
+
+    command:
+      - sqlite:///db.sqlite3
+
+    networks:
+      - local-network
+
+    security_opt:
+      - no-new-privileges:true
+
+networks:
+  local-network:
+    external: true

@@ -13,6 +13,7 @@ A collection of self-hosted Docker Compose services.
 | `monitoring-stack/` | Prometheus, Grafana, Loki, Alertmanager, cAdvisor |
 | `kafka/` | Apache Kafka 4.0 (KRaft, no ZooKeeper) |
 | `mysql-phpmyadmin/` | MySQL + phpMyAdmin |
+| `optuna-dashboard/` | Optuna Dashboard (SQLite) |
 | `postgres-pgadmin/` | PostgreSQL + pgAdmin |
 | `redis/` | Redis + RedisInsight |
 | `supabase/` | Supabase (self-hosted) |
