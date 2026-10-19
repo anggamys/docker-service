@@ -1,6 +1,6 @@
 services:
   mongodb:
-    image: mongodb/mongodb-community-server:8.0-ubuntu2404
+    image: mongo:8
     container_name: mongodb
     restart: unless-stopped
 
