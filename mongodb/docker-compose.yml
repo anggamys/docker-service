@@ -1,0 +1,60 @@
+services:
+  mongodb:
+    image: mongodb/mongodb-community-server:8.0-ubuntu2404
+    container_name: mongodb
+    restart: unless-stopped
+
+    ports:
+      - "127.0.0.1:27017:27017"
+
+    volumes:
+      - ./data/mongodb:/data/db
+
+    environment:
+      TZ: ${TZ}
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "mongosh --quiet --eval \"db.runCommand({ ping: 1 }).ok\" | grep -q 1"
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+    networks:
+      - local-network
+
+    security_opt:
+      - no-new-privileges:true
+
+  mongo-express:
+    image: mongo-express:1.0.2
+    container_name: mongo-express
+    restart: unless-stopped
+
+    ports:
+      - "127.0.0.1:8081:8081"
+
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://mongodb:27017/
+      ME_CONFIG_BASICAUTH_ENABLED: "true"
+      ME_CONFIG_BASICAUTH_USERNAME: ${MONGO_EXPRESS_USERNAME:-admin}
+      ME_CONFIG_BASICAUTH_PASSWORD: ${MONGO_EXPRESS_PASSWORD:-change_me}
+      TZ: ${TZ}
+
+    depends_on:
+      mongodb:
+        condition: service_healthy
+
+    networks:
+      - local-network
+
+    security_opt:
+      - no-new-privileges:true
+
+networks:
+  local-network:
+    external: true

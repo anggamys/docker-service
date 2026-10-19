@@ -1,0 +1,4 @@
+# MongoDB data directory
+.data/
+# Environment file
+.env

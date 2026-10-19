@@ -12,6 +12,7 @@ A collection of self-hosted Docker Compose services.
 | `mlflow/` | MLflow — ML experiment tracking + MinIO + PostgreSQL |
 | `monitoring-stack/` | Prometheus, Grafana, Loki, Alertmanager, cAdvisor |
 | `kafka/` | Apache Kafka 4.0 (KRaft, no ZooKeeper) |
+| `mongodb/` | MongoDB Community 8.0 + Mongo Express |
 | `mysql-phpmyadmin/` | MySQL + phpMyAdmin |
 | `optuna-dashboard/` | Optuna Dashboard (SQLite) |
 | `postgres-pgadmin/` | PostgreSQL + pgAdmin |
